@@ -410,7 +410,7 @@ FROM employee;
 SELECT count(*)
 FROM employee;
 
--- 보너스를 받은 사원 수 조회
+-- 보너스를 받은 사원 수 조회 
 SELECT count(bonus)
 FROM employee;
 
