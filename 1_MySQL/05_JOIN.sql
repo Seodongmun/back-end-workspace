@@ -281,8 +281,11 @@ SELECT * FROM employee;
 SELECT * FROM department;
 SELECT * FROM job;
 SELECT * FROM location;
-SELECT count(dept_code)
-FROM employee;
+SELECT dept_title ,format(sum(salary),0)
+FROM employee
+JOIN department ON (dept_id = dept_code)
+GROUP BY dept_title
+HAVING sum(salary) >= 10000000;
 
 -- 7. 사번, 직원명, 직급명, 급여 등급, 구분 조회 
 -- 이때 구분에 해당하는 값은 아래 참고!
@@ -294,13 +297,16 @@ SELECT * FROM department;
 SELECT * FROM job;
 SELECT * FROM location;
 SELECT * FROM sal_grade;
-SELECT emp_id, emp_name, job_name, min_sal, max_sal, sal_level,
-				 case when  (S1,S2) then'고급'
-				 case when (S3,S4) then'중급'
-				 else '초급' end
+
+
+SELECT emp_id, emp_name, job_name, min_sal, max_sal, 
+		sal_level , case when sal_level = 'S1'or'S2' then '고급' 
+						 when sal_level = 'S3'or'S4' then '중급'
+                         else '초급' end
 FROM employee
 JOIN job USING (job_code)
-JOIN sal_grade ON (salary);
+JOIN sal_grade ON (min_sal <= salary AND salary <= max_sal)
+ORDER BY 1;
 
 -- 8. 보너스를 받지 않은 직원들 중 직급 코드가 J4 또는 J7인 직원들의 직원명, 직급명, 급여 조회 
 
@@ -333,5 +339,5 @@ FROM employee
 JOIN department ON (dept_id = dept_code)
 JOIN job USING (job_code)
 JOIN location ON (location_id = local_code)
-JOIN sal_grade ON (salary);
+JOIN sal_grade ON (min_sal <= salary AND salary <= max_sal);
 
