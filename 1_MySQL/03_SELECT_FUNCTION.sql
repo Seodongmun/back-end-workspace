@@ -187,7 +187,7 @@ SELECT dayofyear(now()), dayofmonth(now()), dayofweek(now());
     DATEDIFF(날짜, 날짜) : 두 날짜 사이의 일수를 숫자로 반환
     TIMEDIFF(날짜, 날짜) : 두 시간의 차이를 날짜 형식으로 반환 
     TIMESTAMPDIFF(날짜단위, 날짜, 날짜) : 두 날짜 사이의 기간을 날짜단위에 따라 변환 
-    
+    TIMESTAMPDIFF()
     * 날짜단위 : YEAR(연도), QUARTER(분기), MONTH(월), WEEK(주), DAY(일),
 			   HOUR(시간), MINUTE(분), SECOND(초)
 */
