@@ -109,7 +109,7 @@ INSERT INTO rent(rent_no , rent_mem_no, rent_book_no ,rent_date)
 	VALUES(5,1,5,now());
 
 -- 5. 2번 도서를 대여한 회원의 이름, 아이디, 대여일, 반납 예정일(대여일 + 7일)을 조회하시오.
-SELECT member_name, member_id, rent_date, ADDDATE(rent_date, INTERVAL 7 day)
+SELECT member_name'회원이름', member_id'아이디', rent_date'대여일', ADDDATE(rent_date, INTERVAL 7 day)반납예정일
 FROM member
 JOIN rent ON(member_no = rent_mem_no)
 WHERE rent_book_no = '2';
@@ -119,9 +119,10 @@ SELECT * FROM book;
 SELECT * FROM publisher;
 
 -- 6. 회원번호가 1번인 회원이 대여한 도서들의 도서명, 출판사명, 대여일, 반납예정일을 조회하시오.
-SELECT DISTINCT bk_title, bk_author, rent_date, ADDDATE(rent_date, INTERVAL 7 day)
+SELECT DISTINCT bk_title'도서명', bk_author, rent_date'대여일', ADDDATE(rent_date, INTERVAL 7 day)반납예정일
 FROM member
 JOIN rent ON(member_no=rent_mem_no)
 JOIN book ON(pub_no = rent_mem_no)
+JOIN publisher ON()
 WHERE member_no IN ('1');
 
