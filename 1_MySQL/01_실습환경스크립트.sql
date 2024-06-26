@@ -34,9 +34,12 @@ CREATE TABLE employee(
     manager_id VARCHAR(3),
     hire_date DATE,
     ent_date DATE,
-    ent_yn CHAR(1) DEFAULT 'N'
+    ent_yn CHAR(1) DEFAULT 'N',
+    report_code_emp INT
+    , FOREIGN KEY(report_code_emp) REFERENCES report (report_id) 
 );
-
+SELECT * FROM employee;
+ALTER TABLE employee RENAME COLUMN report_code_emp TO report_code;
 
 INSERT INTO employee (emp_id, emp_name, emp_no, email, phone, dept_code, job_code, salary, bonus, manager_id, hire_date, ent_date, ent_yn) VALUES ('200','선동일','621235-1985634','sun_di@kh.or.kr','01099546325','D9','J1',8000000,0.3,null,'1990-02-06',null,'N');
 INSERT INTO employee (emp_id, emp_name, emp_no, email, phone, dept_code, job_code, salary, bonus, manager_id, hire_date, ent_date, ent_yn) VALUES ('201','송종기','631156-1548654','song_jk@kh.or.kr','01045686656','D9','J2',6000000,null,'200','2001-09-01',null,'N');
