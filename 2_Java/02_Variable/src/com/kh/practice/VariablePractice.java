@@ -13,6 +13,8 @@ public class VariablePractice {
 		sum.method3();
 		sum.method4();
 		sum.method5();
+		sum.method6();
+		sum.method7();
 	}
 	
 	/*
@@ -69,29 +71,20 @@ public class VariablePractice {
 	 * 나누기 몫 : 3
 	 * */
 	public void method3() {
-		Scanner sc = new Scanner(System.in);
-
 		System.out.println("--- 3번문제 ---");
+		/* Scanner sc = new Scanner(System.in);
 		System.out.print("첫 번째 값을 입력하세요 : ");
 		int a = sc.nextInt();
 		System.out.print("두번째 값을 입력하세요 : ");
 		int b = sc.nextInt();
-		System.out.printf("첫번째 값 %d와 두번째 값 %d를 더한 값은 %d 입니다\n",a,b,a+b);
-		System.out.print("첫 번째 값을 입력하세요 : ");
-		int c = sc.nextInt();
-		System.out.print("두번째 값을 입력하세요 : ");
-		int d = sc.nextInt();
-		System.out.printf("첫번째 값 %d와 두번째 값 %d를 뺀 값은 %d 입니다\n",c,d,c-d);
-		System.out.print("첫 번째 값을 입력하세요 : ");
-		int e = sc.nextInt();
-		System.out.print("두번째 값을 입력하세요 : ");
-		int f = sc.nextInt();
-		System.out.printf("첫번째 값 %d와 두번째 값 %d를 곱한 값은 %d 입니다\n",e,f,e*f);
-		System.out.print("첫 번째 값을 입력하세요 : ");
-		int g = sc.nextInt();
-		System.out.print("두번째 값을 입력하세요 : ");
-		int h = sc.nextInt();
-		System.out.printf("첫번째 값 %d와 두번째 값 %d를 나눈 값은 %d 입니다\n",g,h,g+h);
+		int sum = a+b;
+		int minus = a-b;
+		int mult = a*b;
+		int div = a/b;
+		System.out.printf("첫번째 값 %d와 두번째 값 %d를 더한 값은 %d 입니다\n",a,b,sum);
+		System.out.printf("첫번째 값 %d와 두번째 값 %d를 뺀 값은 %d 입니다\n",a,b,minus);
+		System.out.printf("첫번째 값 %d와 두번째 값 %d를 곱한 값은 %d 입니다\n",a,b,mult);
+		System.out.printf("첫번째 값 %d와 두번째 값 %d를 나눈 몫 값은 %d 입니다\n",a,b,div); */
 	}
 
 	/*
@@ -106,17 +99,22 @@ public class VariablePractice {
 	 * */
 	public void method4() {
 		System.out.println("--- 4번문제 ---");
-		float width = 13.5F;
-		float height = 41.7F;
-		float surface = 562.95F;
-		float cir = 110.4F;
-		System.out.printf("사각형의 면적은 가로 %.1f와 세로%.1f를 곱한 %.1f 입니다\n",width,height,width*height);
-		System.out.printf("사각형의 둘레는 (가로 %.1f와 세로%.1f)를 더한 %.1f를 2로 곱한 %.1f입니다\n",width,height,width+height,(width+height)*2);
-		
+		Scanner sc = new Scanner(System.in);
+
+		/* System.out.print("첫 번째 값을 입력하세요 : ");
+		float a = sc.nextFloat();
+		System.out.print("두번째 값을 입력하세요 : ");
+		float b = sc.nextFloat();
+		float multi = a * b;
+		float sum = a + b;
+		System.out.printf("사각형의 면적은 가로 %.1f와 세로%.1f를 곱한 %.2f 입니다\n",
+							a,b,multi);
+		System.out.printf("사각형의 둘레는 (가로 %.1f와 세로%.1f)를 더한 %.2f를 2로 곱한 %.1f입니다\n",
+							a,b,sum,sum*2); */
 	}
 
 	/*
-	 * 영어 문자열 값을 입력 받아 문자에서 첫번째, 두번째, 마지막 글자(문자열.length())를 출력하세요.
+	 * 영어 문자열 값을 입력 받아 / 문자에서 첫번째, 두번째, 마지막 글자(문자열.length())를 출력하세요.
 	 * 
 	 * 문자열을 입력하세요 : apple
 	 * 첫번째 문자 : a
@@ -126,15 +124,10 @@ public class VariablePractice {
 	public void method5() {
 		System.out.println("--- 5번문제 ---");
 		Scanner sc = new Scanner(System.in);
-		String apple = "apple";
-		String a = "a";
-		String p = "p";
-		String e = "e";
-				
-		System.out.printf("문자열을 입력하세요 : ", apple);
-		String name = sc.next();
-		sc.nextLine();
-
+		System.out.print("문자열을 입력하세요 : ");
+		String input = sc.nextLine();
+		System.out.printf("%s",input.length());
+		char a = (input.length() + 1);
 	}
 
 	/*
@@ -145,7 +138,18 @@ public class VariablePractice {
 	 * B unicode : 66
 	 * */
 	public void method6() {
-
+	/*	System.out.println("--- 6번문제 ---");
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자를 입력하세요 : ");
+		char a = sc.nextLine().charAt(0);
+		// int num = sc.nextInt();
+		System.out.printf("이 문자의 유니코드는 : %d", (int)a);
+		*/
+		
+		// char <-> int : 각 문자들마다 고유한 숫자가 지정되어 있기 때문 (유니코드, 아스키코드)
+		// 쌍방향으로 형변환 가능
+		// char는 음수값 저장 불가 => 값의 범위가 0 ~ 65535
+		
 	}
 	
 	/*
@@ -158,7 +162,22 @@ public class VariablePractice {
 	 * 평균 : 72.67
 	 * */
 	public void method7() {
+		/* System.out.println("--- 7번문제 ---");
+		
+		Scanner sc = new Scanner(System.in);
 
+		
+		System.out.print("국어점수 를 입력하세요 : ");
+		int a = sc.nextInt();
+		System.out.print("영어점수 를 입력하세요 : ");
+		int b = sc.nextInt();
+		System.out.print("수학점수 를 입력하세요 : ");
+		int c = sc.nextInt();
+		int sum = a+b+c;
+		float Average = (a+b+c) / 3;
+		System.out.printf("국어 영어 수학의 총 점수는 %d이고, 평균은 %.2f 입니다",sum,Average);
+		sc.nextLine(); */
 	}
+	
 
 }
