@@ -10,10 +10,10 @@ public class OperatorPractice {
 	
 	public static void main(String[] args) {
 		OperatorPractice practice = new OperatorPractice();
-//		practice.method1();
-//		practice.method2();
-//		practice.method3();
-//		practice.method4();
+		practice.method1();
+		practice.method2();
+		practice.method3();
+		practice.method4();
 		practice.method5();
 		practice.method6();
 		practice.method7();
@@ -28,13 +28,11 @@ public class OperatorPractice {
 		System.out.println("연필 개수를 입력하세요");
 		int pencle = Integer.parseInt(sc.nextLine());
 		
-		int needCount = people - pencle;
-		int haveCount = people / pencle;
-		int pencleCount = people % pencle;
-
+		int haveCount = (people % pencle) / people; // -- 가진 개수
+		int pencleCount = (people - pencle) * - 1; // -- 남은 연필 개수
+	
 		
-		System.out.printf("1인당 가진 연필 개수는 %d개 이고 부족한 연필개수는 %d개"
-				+ ", 남은 연필수는 %d개 입니다",haveCount,needCount,pencleCount);
+		System.out.printf("1인당 가진 연필의 수는%d 개 이고, 남은 연필 수는 %d개 입니다",haveCount,pencleCount);
 		System.out.println();
 	}
 	
@@ -76,11 +74,9 @@ public class OperatorPractice {
 		sc.nextLine();
 		System.out.print("주민번호를 입력하세요 : ");
 		String input = sc.nextLine();
-		
-		
-		
-		char e = input.charAt(8);
-		String check = e == '1' && e == '3' ?
+		// 951208-1184716
+		char e = input.charAt(input.length()-6);
+		String check = e == '1' || e == '3' ?
 						"남자입니다" : "여자입니다";
 		System.out.println(check);
 
