@@ -46,6 +46,7 @@ public class D_Scanner {
 		// char gender = sc.nextLine().charAt(0); <-- 한줄로 표현
 		String input = sc.nextLine();
 		char gender = input.charAt(0);
+		
 	
 		System.out.println("당신의 이름은 " + name + 
 						   "이고 사는 곳은 "+ addr + 
