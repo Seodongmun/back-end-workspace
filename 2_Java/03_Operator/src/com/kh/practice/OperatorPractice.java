@@ -28,8 +28,8 @@ public class OperatorPractice {
 		System.out.println("연필 개수를 입력하세요");
 		int pencle = Integer.parseInt(sc.nextLine());
 		
-		int haveCount = (people % pencle) / people; // -- 가진 개수
-		int pencleCount = (people - pencle) * - 1; // -- 남은 연필 개수
+		int haveCount = (pencle / people); // -- 가진 개수
+		int pencleCount = (pencle - people); // -- 남은 연필 개수
 	
 		
 		System.out.printf("1인당 가진 연필의 수는%d 개 이고, 남은 연필 수는 %d개 입니다",haveCount,pencleCount);
