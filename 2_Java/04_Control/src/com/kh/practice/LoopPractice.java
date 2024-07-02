@@ -1,5 +1,6 @@
 package com.kh.practice;
 
+import java.lang.invoke.MethodHandles.Lookup.ClassOption;
 import java.util.Scanner;
 
 class LoopPractice {
@@ -10,8 +11,8 @@ class LoopPractice {
 		
 		LoopPractice l = new LoopPractice();
 //		l.method1();
-		l.method2(); 
-//		l.method3(); !
+//		l.method2(); 
+		l.method3(); 
 //		l.method4();
 //		l.method5();
 //		l.method6(); !
@@ -37,27 +38,26 @@ class LoopPractice {
     	}
     	
     }
-
-    // 1+(-2)+3+(-4)+...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
+    // 양수 추가 음수 추가가 1씩 늘어난다.
+    // 1+(-2)+3+(-4)+5+(-6)+7+(-8)...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
     public void method2() {
 
-    	int count = 0;
-    	int result = 0;
 //    	1,3,5,7,9 홀수
 //    	-2,-4,-6,-8,-10 짝수
-    	for(int i = 0; i <= 100; i++) { // 100까지 돌리면 끝 
-    		if(i % 2 != 0) {
-    			i += 2;
-    		}else if (i % 2 == 0) {
-    			i -= -2;
-    		}
-    		count++;
-    		System.out.println(i);
-    	}
-    	System.out.println(count + "번 더해야 총합이 100 이상 나온다");
-    	// 10200번 돌려야 총합이 100 이상 나온다?
-
+		int sum = 0;
+		int count = 0;
+		for (int i = 1; sum < 100; i++) {
+			count++;
+			if (i % 2 == 1) {
+				sum += i;
+			} else {
+				sum -= i;
+			}
+			System.out.println(count);
+		}	
     }
+
+    
 
     /*
         사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 
@@ -184,9 +184,7 @@ class LoopPractice {
     	
     	}
     }
-
 }
-
 //사용자의 이름을 입력하고/ 컴퓨터와 가위바위보를 하세요. 
 //컴퓨터가 가위인지 보인지 주먹인지는 랜덤한 수를 통해서 결정하도록 하고,
 //사용자에게는 직접 가위바위보를 받으세요.
