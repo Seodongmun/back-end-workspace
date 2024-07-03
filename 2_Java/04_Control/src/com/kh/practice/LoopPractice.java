@@ -12,10 +12,10 @@ class LoopPractice {
 		LoopPractice l = new LoopPractice();
 //		l.method1();
 //		l.method2(); 
-		l.method3(); 
+//		l.method3(); 
 //		l.method4();
 //		l.method5();
-//		l.method6(); !
+		l.method6(); 
 
 	}
  
@@ -60,28 +60,35 @@ class LoopPractice {
     
 
     /*
-        사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 
-        문자열에 그 문자가 몇 개 있는지 개수를 출력하세요. 
+        사용자로부터 문자열을 입력 / 받고 문자열에서 검색될 문자를 입력 / 받아 해당 
+        문자열에 그 문자가 몇 개 있는지 개수 / 를 출력하세요. 
 
         문자열 : banana
-        문자 : a
         banana 안에 포함된 a 개수 : 3
 
     */
     public void method3() {
-    	
+    	// 문자열을 입력
     	System.out.print("문자열을 입력하세요 > ");
     	String input = sc.nextLine();
-    	// 문자열을 입력
+    	// 문자 입력
     	System.out.print("문자를 입력하세요 > ");
-    	char ch = input.charAt(0);
+    	char ch = sc.next().charAt(0);
+
     	// 받은 문자열의 문자를 검색.
-    	int count = 0;
-    	for(int i = 0; i < ch; i++) {
-    		count++;
-    	}
-    	System.out.println(count);
+    	// input 문자열
+    	// chInput 문자 의 개수. <-- 반복문 돌릴거
     	
+    	int count = 0;
+    	for(int i = 0; i < input.length(); i++) {
+    		if(input.charAt(0) == ch) {
+    			count++;
+    			
+    		}
+    	
+    	}System.out.println(count);
+    	
+    
 
     }
 
@@ -161,29 +168,68 @@ class LoopPractice {
 	    비긴 횟수 : 1, 진 횟수 : 1, 이긴 횟수 : 1
     */
     public void method6() {
-		double random = Math.random();
-		random = Math.random() * 3; // 0,1,2 랜덤값
-		System.out.println((int)random);
 
-		String scissor = "가위";
-    	String rock = "바위";
-    	String paper = "보";
-    	int comScissor = 0;
-    	int comRock = 1;
-    	int comPaper = 2;
-		
-    	while (true) {
-		    	System.out.print("이름을 입력하세요 : ");// 이름 입력
-		    	String name = sc.nextLine();
-		    	System.out.println("가위바위보 : "); // 가위바위보 낼거 입력
-		    	String input = sc.nextLine();
-		    	
+	   	System.out.print("이름을 입력하세요 : ");// 이름 입력
+    	String name = sc.nextLine();
+    	String com1 = "";
+    	String com2 = "";
+    	String com3 = "";
+    	int winCount = 0;
+		int loseCount = 0;
+		int sameCount = 0;
+		while (true) {
+			System.out.printf("가위바위보 : "); // 가위바위보 낼거 입력
+	    	String input = sc.nextLine();
+	    	System.out.println(name + " : " + input);
+	    	double random = Math.random();
+			random = Math.random() * 3; // 0,1,2 랜덤값
+			// 컴퓨터가 낸 랜덤값 0,1,2 를 가위바위보로
+			switch ((int) random) {
+				case 0:
+					com1 = "가위";
+					System.out.println("컴퓨터 : " + com1);
+					break;
+				case 1:
+					com2 = "바위";
+					System.out.println("컴퓨터 : " + com2);
+					break;
+				case 2:
+					com3 = "보";
+					System.out.println("컴퓨터 : " + com3);
+					break;
+			}
+			
+			String comChoice = (String) (com1+com2+com3);
+			// 비긴경우
+			if (input.equals(comChoice)) {
+				System.out.println("비겼습니다");
+				sameCount++;
+			// 이긴경우
+			} else if (input.equals("바위") && com1.equals("가위")|| // 컴퓨터 첫번째 선택
+					  (input.equals("보") && com2.equals("바위") || // 컴퓨터 두번째 선택
+					  (input.equals("가위") && com3.equals("보")))) { // 컴퓨터 세번째 선택
+				System.out.println("이겼습니다!");
+				System.out.printf(name + " : ");
+				winCount++;
+				break;
+			// 진 경우
+			} else {
+				System.out.println("졌습니다 ㅠ");
+				loseCount++;
+				continue;
+			}
+			
+//			비긴 횟수 : 1, 진 횟수 : 1, 이긴 횟수 : 1
+//	        가위바위보 : 가위
+//	        컴퓨터 : 가위
+//	        김미경 : 가위
+//	        비겼습니다.
+		}
 
-		  
-    
-    	
-    	}
-    }
+		System.out.printf("비긴횟수 %d, 진 횟수 %d, 이긴 횟수 %d,"
+				,sameCount,loseCount,winCount);
+
+	}
 }
 //사용자의 이름을 입력하고/ 컴퓨터와 가위바위보를 하세요. 
 //컴퓨터가 가위인지 보인지 주먹인지는 랜덤한 수를 통해서 결정하도록 하고,

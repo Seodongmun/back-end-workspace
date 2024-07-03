@@ -33,7 +33,7 @@ GROUP BY 성별;
     2 WHERE			조건식 (연산자들 가지고 기술)
     3 GROUP BY		그룹 기준 해당하는 컬럼명 | 함수 
     4 HAVING		조건식 (그룹 함수를 가지고 기술)
-    6 ORDER BY		컬럼명 | 컬럼순번 | 별칭 [ASC | DESC];
+    6 ORDER BY		컬럼명 | 컬럼순번 | 별칭 [ ASC | DESC ];
 	LIMIT
 */
 -- 부서별 / 평균 급여가 300만원 이상 / 인 부서의 평균 급여 조회 

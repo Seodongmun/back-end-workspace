@@ -8,10 +8,10 @@
     2. 데이터를 테이블 형태로 저장하고 여러 테이블을 조합하여 비즈니스 관계를 도출하는 구조
     3. 데이터의 중복을 최소화할 수 있으며 사용하기 편리하고 데이터의 
 	   무결성, 트랜잭션 처리 등 데이터베이스 관리 시스템으로 뛰어난 성능을 보여준다.
-	
+
     - SQL(Structured Query Language)
 	   : 관계형 데이터베이스에서 데이터를 조회하거나 조작하기 위해 사용하는 표준 검색 언어
-       
+
     - SQL 종류
     1. DML(Data Manipulation Language) : 데이터 조작어
 		- 실제 데이터를 조작하기 위해 사용하는 언어
@@ -48,10 +48,12 @@
 SELECT *
 FROM employee;
 
+
 -- employee 테이블의 전체 사원들의
 -- 사번(emp_id), 이름(emp_name), 급여(salary)만을 조회
 SELECT emp_id, emp_name, salary
 FROM employee;
+
 
 -- 관례상 대문자로 작성
 
