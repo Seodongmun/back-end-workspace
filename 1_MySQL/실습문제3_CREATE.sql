@@ -57,6 +57,7 @@ VALUES ('그로스 해킹','라이언 홀리데이','13800','3');
 --           phone(연락처)       
 --           status(탈퇴여부)     -- 기본값 'N' / 'Y' 혹은 'N'만 입력되도록 제약조건
 --           enroll_date(가입일)  -- 기본값 현재날짜
+
 CREATE TABLE member (
 	member_no INT PRIMARY KEY AUTO_INCREMENT,
 	member_id VARCHAR(20) NOT NULL UNIQUE,
@@ -87,7 +88,7 @@ SELECT * FROM member;
 CREATE TABLE rent (
 	rent_no INT PRIMARY KEY AUTO_INCREMENT,
 	rent_mem_no INT ,
-	rent_book_no INT , 
+	rent_book_no INT ,
 	rent_date DATE DEFAULT (current_date)
 );
 -- ALTER로 FOREIGN KEY만 관리

@@ -21,7 +21,7 @@ public class Calculator {
 	 * */
 	
 	public int a, b;
-
+	
 	public int add() {
 		return a + b;
 	}

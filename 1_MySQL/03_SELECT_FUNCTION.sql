@@ -98,7 +98,7 @@ SElECT replace('서울특별시 강남구 역삼동', '강남구', '서초구');
 	CONCAT : 문자열을 하나로 합친 후 결과 반환 
 */
 
-SELECT concat('가나다라', 'ABCD','1234'); -- 가나다라ABCD
+SELECT concat('가나다라', 'ABCD','1234'); -- 가나다라ABCD1234
 
 -- 실습문제 --
 -- 1. 이메일의 kh.or.kr을 gmail.com으로 변경해서 이름, 변경 전 이메일, 변경 후 이메일 조회
@@ -261,6 +261,7 @@ SELECT
 SELECT emp_name, date_format(hire_date, '%Y년 %m월 %d일 %H시 %i분 %s초') 입사일
 FROM employee;
 
+
 /*
 	null 처리 함수
     
@@ -283,6 +284,8 @@ ORDER BY 2 DESC;
     - 두 개의 값이 동일하면 null 반환, 두개의 값이 동일하지 않으면 값1 반환
 */
 SELECT nullif('123','123'), nullif('123','456'); -- null, 123
+
+
 
 /*
 	IF(값1, 값2, 값3)| IF(조건, 조건이 True인 경우, 조건이 False인 경우)

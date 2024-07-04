@@ -1,4 +1,5 @@
 /*
+
 	DML (Data Manipulation(조작) Language)
     - 데이터 조작 언어로 테이블에 값을 삽입(INSERT)하거나,
       수정(UPDATE)하거나, 삭제(DELETE)하는 구문
@@ -69,7 +70,7 @@ FROM kh.employee
 	JOIN kh.department ON (dept_code = dept_id);
 
 -- 컬럼명을 명시
-INSERT INTO emp( dept_title, emp_name, hire_date)
+INSERT INTO emp(dept_title, emp_name, hire_date)
 SELECT dept_title, emp_name, hire_date
 FROM kh.employee
 	JOIN kh.department ON (dept_code = dept_id);
@@ -128,6 +129,7 @@ COMMIT;
 ROLLBACK;
 
 -- emp_salary에서 이태림 사원의 급여를 3000000원으로, 보너스를 0.4로 변경 
+
 UPDATE emp_salary
 SET salary = '3000000',
 	bonus = '0.4'

@@ -16,7 +16,7 @@ public class Car {
 	 * - 외부에서는 불필요하고, 내부적으로만 사용되는 부분을 감추기 위해서
 	 * 
 	 * */
-
+	
 	private String color; // 차의 색상
 	private String gearType; // 자동 or 수동
 	private int door; // 문의 개수
@@ -33,7 +33,7 @@ public class Car {
 	 * 	}
 	 * * 생성자 작성시 주의!
 	 * - 반드시 생성자명은 클래스명과 동일 (대/소문자 구분)
-	 * - 반환형이 존재하지 않음 --> 만약 반환형을 쓰게 되면 메서드로 인식
+	 * - 반환형이 존재하지 않음음 --> 만약 반환형을 쓰게 되면 메서드로 인식
 	 * 
 	 * 기본 생성자(default constructor)
 	 * - 매개변수가 없는 생성자

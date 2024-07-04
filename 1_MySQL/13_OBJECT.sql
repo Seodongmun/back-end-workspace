@@ -291,7 +291,6 @@ DROP TABLE report;
 SELECT * FROM employee;
 
 
-
 CREATE TABLE report(
 	report_id INT PRIMARY KEY AUTO_INCREMENT,
     report_count INT,

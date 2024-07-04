@@ -77,6 +77,7 @@ ALTER TABLE dept_copy DROP COLUMN lname;
 ALTER TABLE mem_grade DROP COLUMN grade_code;
 SELECT * FROM mem_grade;
 
+
 /*
 	1-4. 컬럼명 변경 (RENAME COLUMN)
     ALTER TABLE 테이블명 RENAME COLUMN 기존컬럼명 TO 변경할컬럼명;
