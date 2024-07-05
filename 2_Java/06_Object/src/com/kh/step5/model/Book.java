@@ -15,9 +15,9 @@ public class Book {
 	private double discountRate;
 	private String author;
 	
+	
 	// 생성자 방식
 	public Book() {}
-	
 	public Book(String title,int price, double discountRate, String author) {
 		this.title = title;
 		this.price = price;
@@ -33,7 +33,7 @@ public class Book {
 //	public String getTitle() {
 //		return title;
 //	}
-// ctrl + shift + s -> getter setter
+// alt + shift + s -> getter setter
 	public String getTitle() {
 		return title;
 	}
@@ -66,11 +66,7 @@ public class Book {
 		this.author = author;
 	}
 	
-	
-	
-	
-	
-	
+
 	@Override
 	public String toString() {
 	

@@ -7,8 +7,6 @@ public class Application {
 	public static void main(String[] args) {
 		
 //		Car c = new Car();
-		
-		
 //		c.color = "red";
 //		c.gearType = "auto";
 //		c.door = 4;
