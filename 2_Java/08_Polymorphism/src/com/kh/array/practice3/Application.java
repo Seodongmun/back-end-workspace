@@ -33,7 +33,7 @@ public class Application {
 			switch (select) {
 			case 1:
 				// 회원 정보 출력
-				MemberInfo();
+//				MemberInfo();
 				break;
 			case 2:
 				// 대여할 도서 선택 1~4
@@ -65,24 +65,51 @@ public class Application {
 		Book book4 = new Book("귀멸의 칼날 23",false,19);
 		System.out.println("대여할 도서 번호 선택");
 		int select = Integer.parseInt(sc.nextLine());
+		Member check = new Member();
+//		int[] bookList = check.getBookList();
+//		System.out.println(check.getBookList());
 		// 중복선택일시 이미 대여한 책입니다 출력
 		switch (select) {
 		case 1:
 			System.out.println("1번 도서 : " + book1);
 			System.out.println("성공적으로 대여되었습니다.");
-			break;
+			select++;
+			if(select == choice1) {
+				System.out.println("이미 대여한 책입니다");
+			}
+			System.err.println(select);
+			return;
 		case 2:
-			System.out.println("2번 도서 : " + book2);
-			System.out.println("성공적으로 대여되었습니다.");
-			break;
+
+			if (select == choice2) {
+				System.out.println("이미 대여한 책입니다");
+			} else {
+				System.out.println("2번 도서 : " + book2);
+				System.out.println("성공적으로 대여되었습니다.");
+			}
+			select++;
+			return;
 		case 3:
-			System.out.println("3번 도서 : " + book3);
-			System.out.println("성공적으로 대여되었습니다.");
-			break;
+
+			if (select == choice3) {
+				System.out.println("이미 대여한 책입니다");
+			} else {
+				System.out.println("3번 도서 : " + book3);
+				System.out.println("성공적으로 대여되었습니다.");
+			}
+			select++;
+			return;
 		case 4:
-			System.out.println("4번 도서 : " + book4);
-			System.out.println("성공적으로 대여되었습니다.");
-			break;
+
+			if (select == choice4) {
+				System.out.println("이미 대여한 책입니다");
+			} else {
+				System.out.println("4번 도서 : " + book4);
+				System.out.println("성공적으로 대여되었습니다.");
+			}
+			select++;
+			return;
+			
 		}
 		
 	}
