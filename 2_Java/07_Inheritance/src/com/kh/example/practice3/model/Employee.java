@@ -20,11 +20,11 @@ public class Employee {
 		this.dept = dept;
 		this.salary = salary;
 		this.bonus = bonus;
-		
 	}
 	public int getEmpNo() {
 		return empNo;
 	}
+	// 
 	public void setEmpNo(int empNo) {
 		this.empNo = empNo;
 	}
@@ -67,12 +67,11 @@ public class Employee {
 	
 	@Override
 	public String toString() {
+		
 		return "Employee [empNo=" + empNo + ", name=" + name + ", gender=" + gender + ", phone=" + phone + ", dept="
 				+ dept + ", salary=" + salary + ", bonus=" + bonus + "]";
+		
 	}
-	
-	
-	
 	
 
 }

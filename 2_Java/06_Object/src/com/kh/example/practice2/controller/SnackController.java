@@ -13,8 +13,6 @@ public class SnackController {
 	
 	// 데이터를 setter를 이용해 저장하고 "저장 완료되었습니다" 반환
 	// INSERT (DB)
-	 
-	
 	public String saveDate(String kind, String name, String flavor, int numOf, int price) {
 		
 		s.setKind(kind);

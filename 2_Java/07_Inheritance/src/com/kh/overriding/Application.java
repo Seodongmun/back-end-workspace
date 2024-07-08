@@ -40,10 +40,7 @@ public class Application {
 			+ "이며, " + "지불해야 하는 금액은 " + customer3.calcPrice(price)
 			+ "원이며, 적립된 포인트는 "+ customer3.getBonusPoint()+ "점입니다");
 		
-		
-	
 
-		
 	}
 	
 	
