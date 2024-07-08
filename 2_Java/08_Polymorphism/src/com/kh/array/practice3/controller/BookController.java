@@ -1,30 +1,26 @@
 package com.kh.array.practice3.controller;
+import com.kh.array.practice3.model.Book;
 import com.kh.array.practice3.model.Member;
 
 
 public class BookController {
 	
 	private Member member = new Member();
-
-//	Member [name=김미경, age=16, coupon=0, bookList=[null, null]]
+	private Book[] bArr = new Book[1];
+	public int count = 0;
 	
-	public void memberInfo() {
-		member.setName(null);
-		member.setBookList(null);
-		member.setAge(0);
-		member.setCoupon(0);
-	}
 	
-	// 빌린 책의 정보를 입력
-	public void Rental(String name , int age, ) {
+	// 마이페이지 회원정보 조회
+	public void MemberInfo(String name, int age, int coupon, int[] bookList) {
 		
-		
-		
+		// member에서 private 회원정보 set
+		member.setName(name);
+		member.setAge(age);
+		member.setCoupon(coupon);
+		member.setBookList(bookList);
 	}
 	
 	
 	
 	
-	
-
 }

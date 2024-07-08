@@ -3,7 +3,7 @@ package com.kh.array.practice3.model;
 import java.util.Arrays;
 
 public class Member {
-	
+	// 회원 정보
 	private String name;
 	private int age;
 	private int coupon; // 쿠폰 보유 개수
@@ -43,6 +43,11 @@ public class Member {
 	}
 	public void setBookList(int[] bookList) {
 		this.bookList = bookList;
+	}
+	@Override
+	public String toString() {
+		return "Member [name=" + name + ", age=" + age + ", coupon=" + coupon + ", bookList="
+				+ Arrays.toString(bookList) + "]";
 	}
 	
 	

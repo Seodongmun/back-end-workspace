@@ -2,9 +2,10 @@ package com.kh.array.practice3.model;
 
 public class Book {
 	
-	private String title;
-	private boolean coupon;
-	private int accessAge;
+	// 책 정보
+	private String title;  // 타이틀
+	private boolean coupon;// 쿠폰 true / false
+	private int accessAge; // 연령제한
 	
 	
 	
@@ -35,6 +36,12 @@ public class Book {
 	public void setAccessAge(int accessAge) {
 		this.accessAge = accessAge;
 	}
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", coupon=" + coupon + ", accessAge=" + accessAge + "]";
+	}
+	
+	
 	
 	
 }
