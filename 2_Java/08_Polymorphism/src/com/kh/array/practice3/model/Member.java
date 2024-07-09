@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.kh.array.practice3.controller.BookController;
 
-public class Member extends BookController{
+public class Member {
 	// 회원 정보
 	private String name;
 	private int age;

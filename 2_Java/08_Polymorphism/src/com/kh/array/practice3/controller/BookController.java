@@ -34,7 +34,30 @@ public class BookController {
 		member.setAge(age);
 	}
 	
-	
+	public String checkBookList(String Book) {
+		for(int i = 0; i < bArr.length; i++) {
+			if(bArr[i] != null && bArr[i].getTitle().equals(Book))
+		
+				return Book;
+		}
+		return null;
+		
+	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
