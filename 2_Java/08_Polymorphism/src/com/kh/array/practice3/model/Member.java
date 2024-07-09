@@ -2,24 +2,35 @@ package com.kh.array.practice3.model;
 
 import java.util.Arrays;
 
-public class Member {
+import com.kh.array.practice3.controller.BookController;
+
+public class Member extends BookController{
 	// 회원 정보
 	private String name;
 	private int age;
 	private int coupon; // 쿠폰 보유 개수
-	private int bookList[]; // 배열 2개
+	
 	
 
 	public Member() {}
-	public Member(String name, int age, int coupon, int[] bookList) {
+	public Member(String name, int age, int coupon) {
 		super();
 		this.name = name;
 		this.age = age;
 		this.coupon = coupon;
-		this.bookList = bookList;
+
+	}
+	public Member(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+
 	}
 
-
+	@Override
+	public String toString() {
+		return "Member [name=" + name + ", age=" + age + ", coupon=" + coupon + "]";
+	}
 	public String getName() {
 		return name;
 	}
@@ -38,17 +49,7 @@ public class Member {
 	public void setCoupon(int coupon) {
 		this.coupon = coupon;
 	}
-	public int[] getBookList() {
-		return bookList;
-	}
-	public void setBookList(int[] bookList) {
-		this.bookList = bookList;
-	}
-	@Override
-	public String toString() {
-		return "Member [name=" + name + ", age=" + age + ", coupon=" + coupon + ", bookList="
-				+ Arrays.toString(bookList) + "]";
-	}
+
 	
 	
 
