@@ -7,17 +7,14 @@ public class Book {
 	private boolean coupon;// 쿠폰 true / false
 	private int accessAge; // 연령제한
 	
-	
-	
-	public Book() {}
+	public Book() {
+	}
 	public Book(String title, boolean coupon, int accessAge) {
 		super();
 		this.title = title;
 		this.coupon = coupon;
 		this.accessAge = accessAge;
 	}
-
-
 	public String getTitle() {
 		return title;
 	}
@@ -41,6 +38,8 @@ public class Book {
 		return "Book [title=" + title + ", coupon=" + coupon + ", accessAge=" + accessAge + "]";
 	}
 	
+	
+
 	
 	
 	
