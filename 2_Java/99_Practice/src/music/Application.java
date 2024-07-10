@@ -10,7 +10,7 @@ public class Application {
 	
 	Scanner sc = new Scanner(System.in);
 	private Music music = new Music();
-	private MusicController mc = new MusicController();
+	
 	
 	
 	public static void main(String[] args) {
@@ -45,11 +45,27 @@ public class Application {
 				switch (select) {
 				// 1. 마지막 위치에 곡 추가
 				case 1:
-					mc.musicSelect1();
+					System.out.println("****** 마지막 위치에 곡 추가 ******");
+					System.out.println("노래 이름 입력 : ");
+					String musicName = sc.nextLine();
+					System.out.println("가수 이름 입력 : ");
+					String name = sc.nextLine();
+					System.out.println("노래 이름 : " + musicName);
+					System.out.println("가수 이름 : " + name);
+					System.out.println("추가 성공");
+					MusicController mc = new MusicController();
+
 					break;
 				// 2. 첫 위치에 곡 추가
 				case 2:
-					mc.musicSelect2();
+					System.out.println("****** 첫 위치에 곡 추가 ******");
+					System.out.println("노래 이름 입력 : ");
+					String musicName = sc.nextLine();
+					System.out.println("가수 이름 입력 : ");
+					String name = sc.nextLine();
+					System.out.println("노래 이름 : " + musicName);
+					System.out.println("가수 이름 : " + name);
+					System.out.println("추가 성공");
 					break;
 				case 3:
 					mc.musicSelect3();

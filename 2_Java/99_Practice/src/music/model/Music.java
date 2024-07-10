@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Music {
 	
 	private String music;
-	private String Name;
-	
+	private String name;
 	public Music() {
+		super();
 	}
 	public Music(String music, String name) {
 		super();
 		this.music = music;
-		Name = name;
+		this.name = name;
 	}
 	public String getMusic() {
 		return music;
@@ -21,19 +21,18 @@ public class Music {
 		this.music = music;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
-	
 	@Override
 	public String toString() {
-		return "Music [music=" + music + ", Name=" + Name + "]";
+		return "Music [music=" + music + ", name=" + name + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Name, music);
+		return Objects.hash(music, name);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -44,9 +43,10 @@ public class Music {
 		if (getClass() != obj.getClass())
 			return false;
 		Music other = (Music) obj;
-		return Objects.equals(Name, other.Name) && Objects.equals(music, other.music);
+		return Objects.equals(music, other.music) && Objects.equals(name, other.name);
 	}
 	
+
 	
 	
 

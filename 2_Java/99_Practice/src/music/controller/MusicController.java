@@ -9,38 +9,37 @@ public class MusicController {
 	
 	private Music music = new Music();
 	Scanner sc = new Scanner(System.in);
-	ArrayList<String> musicList = new ArrayList<>();
+	ArrayList<Music> musicList = new ArrayList<>();
 	
-	public void musicSelect1 () {
-		System.out.println("****** 마지막 위치에 곡 추가 ******");
-		System.out.println("노래 이름 입력 : ");
-		String musicName = sc.nextLine();
-		musicList.add(musicName);
-		music.setMusic(musicName);
-	
-		System.out.println("가수 이름 입력 : ");
-		String Name = sc.nextLine();
-		musicList.add(Name);
-		music.setName(Name);
+	public Music getMusic() {
+		return music;
+	}
+
+	public void setMusic(Music music) {
+		this.music = music;
+	}
+
+	public ArrayList<Music> getMusicList() {
+		return musicList;
+	}
+
+	public void setMusicList(ArrayList<Music> musicList) {
+		this.musicList = musicList;
+	}
+
+	public void musicSelect1 (String musicName, String name) {
+		// music과 name 필드에 app에서 받은 데이터 lise에 저장
+		musicList.add(new Music(musicName,name));
 		
-		System.out.println("노래 이름 : " + musicName);
-		System.out.println("가수 이름 : " + Name);
-		System.out.println("추가 성공");
+	
 	}
 	
-	public void musicSelect2 () {
-		System.out.println("****** 첫 위치에 곡 추가 ******");
-
-		System.out.println("노래 이름 입력 : ");
-		String musicName = sc.nextLine();
-		System.out.println("가수 이름 입력 : ");
-		String Name = sc.nextLine();
-		musicList.add(0,Name);
+	public void musicSelect2 (String musicName, String name) {
 		music.setMusic(musicName);
-		music.setName(Name);
-		
+		music.setName(name);
+		musicList.add(0,name);
 		System.out.println("노래 이름 : " + musicName);
-		System.out.println("가수 이름 : " + Name);
+		System.out.println("가수 이름 : " + name);
 		System.out.println("추가 성공");
 	}
 	
