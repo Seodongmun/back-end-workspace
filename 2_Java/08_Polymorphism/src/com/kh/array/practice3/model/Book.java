@@ -1,5 +1,7 @@
 package com.kh.array.practice3.model;
 
+import java.util.Arrays;
+
 public class Book {
 	
 	// 책 정보
@@ -15,6 +17,7 @@ public class Book {
 		this.coupon = coupon;
 		this.accessAge = accessAge;
 	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -37,8 +40,6 @@ public class Book {
 	public String toString() {
 		return "Book [title=" + title + ", coupon=" + coupon + ", accessAge=" + accessAge + "]";
 	}
-	
-	
 
 	
 	

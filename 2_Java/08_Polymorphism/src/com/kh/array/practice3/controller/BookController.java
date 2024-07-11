@@ -6,15 +6,37 @@ import com.kh.array.practice3.model.Member;
 public class BookController {
 	
 	private Member member = new Member();
-	private Book[] bArr = new Book[2];
 	public int count = 0;
 	
 	
-	public BookController() {}
-	public BookController(Member member, Book[] bArr, int count) {
+	
+	public BookController() {
+	}
+
+
+	public BookController(Member member, int count) {
 		super();
 		this.member = member;
-		this.bArr = bArr;
+		this.count = count;
+	}
+
+
+	public Member getMember() {
+		return member;
+	}
+
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+	public void setCount(int count) {
 		this.count = count;
 	}
 
@@ -30,26 +52,8 @@ public class BookController {
 
 	
 //	 중복된 대여된 책
-	public int checkBook(String title) {
-		
-		for(int i = 0; i < bArr.length; i++) {
-			if(bArr[i] != null && bArr[i].getTitle().equals(title))
-
-			return i;
-		}
-		return 0;
-	}
 
 
-	public Book[] getbArr() {
-		return bArr;
-	}
-
-	
-	public void setbArr(Book[] bArr) {
-		this.bArr = bArr;
-	}
-	
 	
 	
 	

@@ -6,11 +6,13 @@ import java.util.TreeSet;
 
 import com.kh.set.model.Person;
 
+
 /*
  	TreeSet
  	- 저장과 동시에 자동 오름차순 정렬 (HashSet + 정렬)
  	- HashSet보다 데이터 추가, 삭제에 시간이 더 걸림
  * */
+
 
 public class B_TreeSet {
 	
@@ -25,7 +27,7 @@ public class B_TreeSet {
 		// 3명
 		System.out.println(set);
 		System.out.println(set.size());
-		System.out.println("구교환이 포함되어 있는가? "+ set.contains("구교환"));// true
+		System.out.println("구교환이 포함되어 있는가? " + set.contains("구교환"));// true
 		
 		set.remove("홍사빈");
 		System.out.println(set);
@@ -61,8 +63,6 @@ public class B_TreeSet {
 			System.out.println("Iterator " + it.next()); // 다음 요소를 읽어옴
 			
 		}
-		
-		
 	}
 	
 	public static void main(String[] args) {
