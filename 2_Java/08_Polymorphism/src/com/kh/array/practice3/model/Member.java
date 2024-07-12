@@ -8,6 +8,8 @@ public class Member {
 	private int age;
 	private int coupon; // 쿠폰 보유 개수
 	private Book[] bookList = new Book[2];
+//	private ArrayList<Book> bookList = new ArrayList<>();
+	
 	public Member() {
 	}
 	public Member(String name, int age, int coupon, Book[] bookList) {

@@ -8,53 +8,20 @@ public class BookController {
 	private Member member = new Member();
 	public int count = 0;
 	
+//  내 정보 추가하는 기능 필요
+	public void addMember(String name , int age) {
+		member.setName(name);
+		member.setAge(age);
+	}
 	
-	
-	public BookController() {
-	}
-
-
-	public BookController(Member member, int count) {
-		super();
-		this.member = member;
-		this.count = count;
-	}
-
-
-	public Member getMember() {
-		return member;
-	}
-
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-
-
-	public int getCount() {
-		return count;
-	}
-
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
-
-	// 마이페이지 회원정보 조회
+//  member에서 private 회원정보 set
+//	마이페이지 기능
 	public void memberInfo(String name, int age, int coupon) {
-		// member에서 private 회원정보 set
 		member.getName();
 		member.getAge();
 		member.getCoupon();
 		
 	}
 
-	
-//	 중복된 대여된 책
 
-
-	
-	
-	
 }

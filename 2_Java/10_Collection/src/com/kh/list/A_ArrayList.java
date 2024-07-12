@@ -72,7 +72,6 @@ public class A_ArrayList {
 		list.add(new Person("이시언", "상도동", 42));
 		list.add(new Person("이제훈", "삼성동", 40));
 		
-		
 		// 2. add : 인덱스를 지정하여 해당 인덱스에 추가
 		// -> 내부적으로 기존에 있는 것들은 뒤로 땡기고 해당 인덱스에 값 추가.
 		list.add(1, new Person("유재석", "논현동", 51));
@@ -85,7 +84,7 @@ public class A_ArrayList {
 		// 4. size : 리스트 안에 몇 개의 데이터가 있는지
 		// 배열의 길이는 length 리스트의 데이터는 size로 조회
 		System.out.println("사람 수" + list.size());
-
+		
 		// 5. remove : 해당 인덱스의 객체 삭제
 		// -> 알아서 크기 줄어들고 뒤에 객체가 앞으로 다 땡겨옴
 		list.remove(0);
@@ -149,7 +148,7 @@ public class A_ArrayList {
 		list.add("mango");
 		list.add("grape");
 		System.out.println(list);
-
+		
 		// 11. 오름차순 정렬 : Comparble 인터페이스를 구현하고 있는 요소를
 //							가지고 비교값들을 반환하여 정렬
 		Collections.sort(list);
@@ -162,7 +161,7 @@ public class A_ArrayList {
 		System.out.println(list);
 
 	}
-
+	
 	public static void main(String[] args) {
 		A_ArrayList a = new A_ArrayList();
 //		a.method1();

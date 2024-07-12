@@ -1,11 +1,14 @@
 package music.model;
 
-import java.util.Objects;
+import java.util.Objects; 
 
-public class Music {
+
+
+public class Music implements Comparable<Music>{
 	
 	private String music;
 	private String name;
+	
 	public Music() {
 		super();
 	}
@@ -46,7 +49,17 @@ public class Music {
 		return Objects.equals(music, other.music) && Objects.equals(name, other.name);
 	}
 	
-
+//	정렬
+	@Override
+	public int compareTo(Music o) {
+		// 음악 정렬
+		return this.music.compareTo(o.music);
+	}
+	public int compareTo2(Music i) {
+		// 이름 정렬
+		return this.name.compareTo(i.name);
+	}
+	
 	
 	
 

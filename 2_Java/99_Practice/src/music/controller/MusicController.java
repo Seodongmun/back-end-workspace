@@ -1,136 +1,102 @@
 package music.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
-
 import music.model.Music;
 
 public class MusicController {
 	
-	private Music music = new Music();
+	
 	Scanner sc = new Scanner(System.in);
-	ArrayList<Music> musicList = new ArrayList<>();
-	
-	public Music getMusic() {
-		return music;
+	ArrayList<Music> musicList = new ArrayList<Music>();
+
+//	1. 마지막 위치에 곡 추가
+	public String menu1(String musicName, String name) {
+		musicList.add(new Music(musicName, name));
+		return "추가 성공!";
 	}
 
-	public void setMusic(Music music) {
-		this.music = music;
-	}
-
-	public ArrayList<Music> getMusicList() {
-		return musicList;
-	}
-
-	public void setMusicList(ArrayList<Music> musicList) {
-		this.musicList = musicList;
-	}
-
-	public void musicSelect1() {
-		// music과 name 필드에 app에서 받은 데이터 lise에 저장
-		System.out.println("****** 마지막 위치에 곡 추가 ******");
-		System.out.println("노래 이름 입력 : ");
-		String musicName = sc.nextLine();
-		music.setMusic(musicName);
-		System.out.println("가수 이름 입력 : ");
-		String name = sc.nextLine();
-		music.setName(name);
-		musicList.add(new Music(musicName,name));
-		System.out.println("노래 이름 : " + music.getMusic());
-		System.out.println("가수 이름 : " + music.getName());
-		System.out.println("추가 성공");
-
+//	2. 첫 위치에 곡 추가
+	public String menu2(String musicName, String name) {
+		musicList.add(0, new Music(musicName, name));
+		return "추가 성공!";
 	}
 	
-	public void musicSelect2() {
-		System.out.println("****** 첫 위치에 곡 추가 ******");
-		System.out.println("노래 이름 입력 : ");
-		String musicName = sc.nextLine();
-		music.setMusic(musicName);
-		System.out.println("가수 이름 입력 : ");
-		String name = sc.nextLine();
-		music.setName(name);
-		musicList.add(0,new Music(musicName,name));
-		System.out.println("노래 이름 : " + music.getMusic());
-		System.out.println("가수 이름 : " + music.getName());
-		System.out.println("추가 성공");
+//  매개변수는 app에서 입력한 값 = String musicName 과 String name
+//	3. 전체 곡 검색
+	public String menu3() {
+		for (Music a : musicList) {
+			System.out.println(a.getName() + " - " + a.getMusic());
+		}
+		return "출력 완료";
 	}
-	
-	public void musicSelect3 () {
-		System.out.println("****** 전체 곡 목록 출력 ******");
-		System.out.println("저장된 노래 : " + musicList);
-	}
-	
-	public void musicSelect4 () {
-		System.out.println("****** 특정 곡 검색 ******");
-		System.out.println("검색할 곡 입력 : ");
-		String serch = sc.nextLine();
-		for(Music a : musicList) {
+
+//	4. 특정 곡 검색
+	public void menu4(String serch) {
+		for (Music a : musicList) {
 			if (serch.equals(a.getMusic())) {
 				System.out.println(a.getName() + " - " + a.getMusic() + " 을 검색하였습니다");
-			} else if (!serch.equals(a.getMusic())){
+			} else if (!serch.equals(a.getMusic())) {
 				System.out.println("리스트에 검색한 곡이 없습니다");
 			}
 			
 		}
-		
 	}
 	
-	public void musicSelect5 () {
-		System.out.println("****** 특정 곡 삭제 ******");
-		System.out.println("삭제할 곡 입력 : ");
-		String remove = sc.nextLine();
+//	5. 특정 곡 삭제
+//	remove값 미구현
+	public void menu5(String serch) {
 //		Contains 의 value 값을 검색 후 삭제
-		for(Music a : musicList) {
-			if (remove.equals(a.getMusic())) {
+		for (Music a : musicList) {
+			// musicList 의 배열 인덱스 : a
+			if (serch.equals(a.getMusic())) {
 				// 0번째 인덱스가아닌 remove.equals(의 값이 삭제되어야 함)
 				musicList.remove(0);
 				System.out.println(a.getName() + " - " + a.getMusic() + " 을 삭제하였습니다");
-			} else if (!remove.equals(a.getMusic())){
+			} else if (!serch.equals(a.getMusic())) {
 				System.out.println("리스트에 검색한 곡이 없습니다");
 			}
 		}
-		
 	}
 	
-	public void musicSelect6 () {
-		System.out.println("****** 특정 곡 수정 ******");
-//		value 값을 검색후
-		System.out.println("검색할 곡 명 : ");
-		String serch = sc.nextLine();
-		for(Music a : musicList) {
+//	6. 특정 곡 수정
+//	remove값 미구현
+	public void menu6(String serch, String changeSong, String changeSinger) {
+		for (Music a : musicList) {
 			if (serch.equals(a.getMusic())) {
 				System.out.println(a.getName() + " - " + a.getMusic() + " 을 검색하였습니다");
-			} else if (!serch.equals(a.getMusic())){
+			} else {
 				System.out.println("리스트에 검색한 곡이 없습니다");
 			}
-			
 		}
-//		key값과
-		System.out.println("수정할 곡 명 : ");
-		String changeSong = sc.nextLine();
-//		value값을 수정
-		System.out.println("수정할 가수 명 : ");
-		String changeSinger = sc.nextLine();
-		
+		for (Music a : musicList) {
+			// serch에 입력한 곡 명과 같은 이름을가진 인덱스를
+			// changeSong 에 입력한 값으로 변환
+			if (serch.equals(a.getMusic())) {
+				// 삭제 인덱스는 0번이 아니라 위에서 입력한 serch값을 삭제해야함
+				musicList.remove(0);
+				musicList.add(new Music(changeSong, changeSinger));
+				System.out.println(changeSong + " - " + changeSinger + "의 값이 변경되었습니다");
+				System.out.println(musicList);
+			}
+		}
 		System.out.println("수정할 곡을 찾지 못했습니다.");
+	}
+	
+//	7. 가수 명 내림차순 정렬
+	public String menu7() {
+		musicList.stream()
+		.sorted(Comparator.reverseOrder())
+		.forEach(name -> System.out.println(name + " "));
+		return "정렬이 완료되었습니다";
+	}
 
+//	8. 곡 명 오름차순 정렬
+	public String menu8() {
+		musicList.stream()
+		.sorted()
+		.forEach(music -> System.out.println(music + " "));
+		return "정렬이 완료되었습니다";
 	}
-	
-	public void musicSelect7 () {
-		
-		
-	}
-	
-	public void musicSelect8 () {
-		
-		
-	}
-	
-	
-	
-	
-	
-	
 }

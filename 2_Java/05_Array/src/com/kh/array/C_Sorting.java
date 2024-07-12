@@ -32,7 +32,7 @@ public class C_Sorting {
 		// 내림차순 정렬
 		Arrays.sort(arr,Collections.reverseOrder());
 		System.out.println(Arrays.toString(arr));
-
+		
 	}
 	
 	// 최대값과 최소값 구하기
