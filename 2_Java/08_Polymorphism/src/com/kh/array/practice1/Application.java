@@ -19,7 +19,7 @@ public class Application {
 		arr[2] = new Student("이준용", "자바", 97);
 		arr[3] = new Student("김경주", "화면", 98);
 		arr[4] = new Student("김현호", "자바", 95);
-
+		
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 //			Student [name=박성철, subject=자바, score=100]

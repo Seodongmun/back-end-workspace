@@ -135,7 +135,6 @@ public class Application {
 //	7. 가수 명 내림차순 정렬
 	public void menu7() {
 		System.out.println("****** 가수 명 내림차순 정렬 ******");
-		System.out.print(mc.menu7());
 	}
 //	8. 곡 명 오름차순 정렬
 	public void menu8() {

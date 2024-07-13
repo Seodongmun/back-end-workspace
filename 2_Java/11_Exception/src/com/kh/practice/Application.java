@@ -42,7 +42,7 @@ public class Application {
 			while (check) {
 				System.out.println("최대 등록 가능한 회원 수는 3명입니다.");
 				System.out.println("현재 등록된 회원 수는 " + mc.count + "명입니다.");
-
+				
 				if (mc.count < 3) {
 					System.out.println("1. 새 회원 등록");
 				} else {
