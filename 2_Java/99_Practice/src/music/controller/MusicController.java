@@ -2,10 +2,14 @@ package music.controller;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Scanner;
 import music.model.Music;
 
 public class MusicController {
+	
+	boolean check = true;
+	
 	
 	
 	Scanner sc = new Scanner(System.in);
@@ -26,70 +30,52 @@ public class MusicController {
 //  매개변수는 app에서 입력한 값 = String musicName 과 String name
 //	3. 전체 곡 검색
 	public String menu3() {
+		String str = "";
 		for (Music a : musicList) {
-			System.out.println(a.getName() + " - " + a.getMusic());
+			str += a.getName() + " - " + a.getMusic() + "\n";
 		}
-		return "출력 완료";
+		return str;
 	}
 	
 //	4. 특정 곡 검색
-	public void menu4(String serch) {
+//	menu4 는 검색 메서드
+	public String menu4(String serch) {
+		String str = "";
 		for (Music a : musicList) {
 			if (serch.equals(a.getMusic())) {
-				System.out.println(a.getName() + " - " + a.getMusic() + " 을 검색하였습니다");
-			} else if (!serch.equals(a.getMusic())) {
-				System.out.println("리스트에 검색한 곡이 없습니다");
+				str = a.getName() + " - " + a.getMusic() + " 을 검색하였습니다";
 			}
-			
 		}
+		return str;
 	}
-	
 //	5. 특정 곡 삭제
-//	remove값 미구현
-	public void menu5(String serch) {
-//		Contains 의 value 값을 검색 후 삭제
-		for (Music a : musicList) {
-			// musicList 의 배열 인덱스 : a
-			if (!serch.equals(a.getMusic())) {
-				System.out.println("리스트에 검색한 곡이 없습니다");
-			} else if (serch.equals(a.getMusic())) {
-				musicList.remove(serch.equals(a.getMusic()));
-				musicList.remove(serch.equals(a.getName()));
-				System.out.println(a.getName() + " - " + a.getMusic() + " 을 삭제하였습니다");
+
+	public String menu5(String serch) {
+		Music delete = null;
+		for(Music music : musicList) {
+			if(serch.equals(music.getMusic())) {
+				int index = musicList.indexOf(music);
+				delete = musicList.remove(index);
 			}
 		}
+		return delete.getName() + " - " + delete.getMusic() + " 을 삭제하였습니다";
 	}
 
-	
 //	6. 특정 곡 수정
-//	remove값 미구현
-	public void menu6(String serch, String changeSong, String changeSinger) {
-		for (Music a : musicList) {
-			if (serch.equals(a.getMusic())) {
-				System.out.println(a.getName() + " - " + a.getMusic() + " 을 검색하였습니다");
-			} else {
-				System.out.println("리스트에 검색한 곡이 없습니다");
-			}
+//	삭제 & 검색 메서드
+	public String menu6(String serch, String changeSong, String changeSinger) {
+		Music delete = null;
+		String str = "";
+		for (Music music : musicList) {
+			if (serch.equals(music.getName())) {
+				int index = musicList.indexOf(music);
+//				musicList.set(index, music.getName());
+				delete = musicList.remove(index);
+				
+			} 
 		}
-		for (Music a : musicList) {
-			// serch에 입력한 곡 명과 같은 이름을가진 인덱스를
-			// changeSong 에 입력한 값으로 변환
-			boolean check = true;
-//			1. 검색결과가 true이면~
-			if (serch.equals(a.getMusic()) == check) {
-//				serch.equals(a.getMusic())의 반환값은 boolean
-//				boolean 값을 int 로 형변환?
-//				2. 검색결과와 일치한 음악을 삭제한다
-				musicList.remove(musicList.equals(serch));
-//				3. 하지만 remove의 반환값은 int
-				musicList.add(new Music(changeSong, changeSinger));
-				System.out.println(changeSong + " - " + changeSinger + "의 값이 변경되었습니다");
-				System.out.println(musicList);
-			}
-		}
-		System.out.println("수정할 곡을 찾지 못했습니다.");
+		return str;
 	}
-	
 //	7. 가수 명 내림차순 정렬
 	public String menu7() {
 		musicList.stream()
@@ -97,7 +83,6 @@ public class MusicController {
 		.forEach(name -> System.out.println(name + " "));
 		return "정렬이 완료되었습니다";
 	}
-	
 //	8. 곡 명 오름차순 정렬
 	public String menu8() {
 		musicList.stream()

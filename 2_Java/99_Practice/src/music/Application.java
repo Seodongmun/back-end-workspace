@@ -110,31 +110,31 @@ public class Application {
 		System.out.println("****** 특정 곡 검색 ******");
 		System.out.println("검색할 곡 입력 : ");
 		String serch = sc.nextLine();
-		mc.menu4(serch);
+		System.out.println(mc.menu4(serch));
 	}
 //	5. 특정 곡 삭제
 	public void menu5() {
 		System.out.println("****** 특정 곡 삭제 ******");
 		System.out.println("삭제할 곡 입력 : ");
 		String serch = sc.nextLine();
-		mc.menu5(serch);
+		System.out.println(mc.menu5(serch));
 	}
 //	6. 특정 곡 수정
 	public void menu6() {
 		System.out.println("****** 특정 곡 수정 ******");
 		System.out.println("검색할 곡 명 : ");
 		String serch = sc.nextLine();
-//		key값과
 		System.out.println("수정할 곡 명 : ");
 		String changeSong = sc.nextLine();
-//		value값을 수정
 		System.out.println("수정할 가수 명 : ");
 		String changeSinger = sc.nextLine();
-		mc.menu6(serch, changeSong, changeSinger);
+		System.out.println(mc.menu6(serch,changeSong,changeSinger));
+		
 	}
 //	7. 가수 명 내림차순 정렬
 	public void menu7() {
 		System.out.println("****** 가수 명 내림차순 정렬 ******");
+		System.out.println(mc.menu7());
 	}
 //	8. 곡 명 오름차순 정렬
 	public void menu8() {
