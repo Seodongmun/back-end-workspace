@@ -12,7 +12,7 @@ public class InputThread extends Thread {
 //		를 InputTread 에서 사용할수있게 this.사용
 		this.process = process;
 	}
-
+	
 	public void run() {
 //		1. 데이터 입력 작업
 		String input = JOptionPane.showInputDialog("최종 로또 번호를 입력하세요..");

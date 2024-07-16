@@ -2,9 +2,7 @@ package music.model;
 
 import java.util.Objects; 
 
-
-
-public class Music implements Comparable<Music>{
+public class Music implements Comparable<Music> {
 	
 	private String music;
 	private String name;
@@ -31,7 +29,7 @@ public class Music implements Comparable<Music>{
 	}
 	@Override
 	public String toString() {
-		return "Music [music=" + music + ", name=" + name + "]";
+		return music + " - " + name;
 	}
 	@Override
 	public int hashCode() {
@@ -50,6 +48,7 @@ public class Music implements Comparable<Music>{
 	}
 	
 //	정렬
+//	정렬용 클래스 따로 생성해야함
 	@Override
 	public int compareTo(Music o) {
 		// 음악 정렬
@@ -62,5 +61,4 @@ public class Music implements Comparable<Music>{
 	
 	
 	
-
 }

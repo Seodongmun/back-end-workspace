@@ -10,16 +10,21 @@ public class MusicController {
 	
 	boolean check = true;
 	
-	
-	
 	Scanner sc = new Scanner(System.in);
-	ArrayList<Music> musicList = new ArrayList<Music>();
+	private ArrayList<Music> musicList = new ArrayList<Music>();
 
 //	1. 마지막 위치에 곡 추가
 	public String menu1(String musicName, String name) {
 		musicList.add(new Music(musicName, name));
 		return "추가 성공!";
 	}
+	
+//	1. 마지막 위치에 곡 추가
+//	public String menu1(Music music) {
+//		
+//		musicList.add(music);
+//		return "추가 성공!";
+//	}
 	
 //	2. 첫 위치에 곡 추가
 	public String menu2(String musicName, String name) {
@@ -34,60 +39,78 @@ public class MusicController {
 		for (Music a : musicList) {
 			str += a.getName() + " - " + a.getMusic() + "\n";
 		}
-		return str;
+		return str ;
 	}
+	
+	
 	
 //	4. 특정 곡 검색
 //	menu4 는 검색 메서드
-	public String menu4(String serch) {
+	public String menu4(String search) {
 		String str = "";
-		for (Music a : musicList) {
-			if (serch.equals(a.getMusic())) {
-				str = a.getName() + " - " + a.getMusic() + " 을 검색하였습니다";
+		for (Music music : musicList) {
+//			contains를 사용하면 포함만 되어도 검색이 가능
+			if (music.getMusic().contains(search)) {
+				str += music.getName() + " - " + music.getMusic() + " 을 검색하였습니다";
 			}
 		}
 		return str;
 	}
+	
 //	5. 특정 곡 삭제
 
-	public String menu5(String serch) {
+	public String menu5(String search) {
 		Music delete = null;
+		int index = 0;
 		for(Music music : musicList) {
-			if(serch.equals(music.getMusic())) {
-				int index = musicList.indexOf(music);
-				delete = musicList.remove(index);
+			if(music.getMusic().equals(search)) {
+				index = musicList.indexOf(music);
 			}
-		}
+		} 
+		delete = musicList.remove(index);
 		return delete.getName() + " - " + delete.getMusic() + " 을 삭제하였습니다";
 	}
 
 //	6. 특정 곡 수정
 //	삭제 & 검색 메서드
-	public String menu6(String serch, String changeSong, String changeSinger) {
-		Music delete = null;
-		String str = "";
+	public String menu6(String search, String changeSong, String changeSinger) {
 		for (Music music : musicList) {
-			if (serch.equals(music.getName())) {
-				int index = musicList.indexOf(music);
-//				musicList.set(index, music.getName());
-				delete = musicList.remove(index);
-				
-			} 
+			if (music.getMusic().contains(search)) {
+				musicList.set(musicList.indexOf(music), new Music(changeSong, changeSinger));
+			}
 		}
-		return str;
+//		set은 굳이 삭제하지 않아도
+//		조건에 맞는 index값의 value 값을 수정해준다
+		return search + " 을 " + changeSong + " 의 " + changeSinger + "으로 변경하였습니다";
 	}
+
 //	7. 가수 명 내림차순 정렬
 	public String menu7() {
+//		ArrayList<Music> cloneList =( ArrayList<Music> )musicList.clone();
+//		Colloections.sort(cloneList, new 정렬용 파일명)
+		
 		musicList.stream()
 		.sorted(Comparator.reverseOrder())
 		.forEach(name -> System.out.println(name + " "));
-		return "정렬이 완료되었습니다";
+	
+		return "정렬 완료";
 	}
+	
 //	8. 곡 명 오름차순 정렬
 	public String menu8() {
+//		ArrayList<Music> cloneList =( ArrayList<Music> )musicList.clone();
+//		Colloections.sort(cloneList, new 정렬용 파일명)
+		
 		musicList.stream()
 		.sorted()
-		.forEach(music -> System.out.println(music + " "));
-		return "정렬이 완료되었습니다";
+		.forEach(musicName -> System.out.println(musicName + " "));
+		return "정렬 완료";
+		
 	}
 }
+
+
+
+
+
+
