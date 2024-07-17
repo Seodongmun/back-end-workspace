@@ -15,6 +15,7 @@ public class ChattClient {
 			System.out.println("서버와 연결되었습니다.");
 			
 			Thread sendThread = new SendThread(socket);
+			
 			sendThread.start();
 			
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));

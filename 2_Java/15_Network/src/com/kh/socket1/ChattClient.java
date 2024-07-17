@@ -20,12 +20,11 @@ public class ChattClient {
 			
 			
 //			2. 스트림 생성
+//			br은 input
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//			pw는 output
 			PrintWriter pw = new PrintWriter(s.getOutputStream(), true);			
 			System.out.println("Client Stream Creating...");
-			
-			
-			
 			
 			
 			String line = "";

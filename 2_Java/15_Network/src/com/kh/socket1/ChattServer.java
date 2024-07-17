@@ -21,12 +21,13 @@ public class ChattServer {
 			Socket s = server.accept();
 			System.out.println("Client Socket..");
 			
-
+			
 			BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			
 			String line = null;
 			while((line = br.readLine())!= null) {
 				System.out.println("Client가 보낸 메세지 : " + line);
+				
 			}
 			
 		} catch (IOException e) {
@@ -38,3 +39,13 @@ public class ChattServer {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
