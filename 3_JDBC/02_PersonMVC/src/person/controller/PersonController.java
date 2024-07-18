@@ -41,11 +41,11 @@ public class PersonController {
 	public void closeAll(ResultSet rs, PreparedStatement ps, Connection conn) throws SQLException {
 		rs.close();
 		closeAll(ps,conn);
+		
 	}
 	
 	
 //	변동적인 반복 -- 비즈니스 로직 DAO(Database Access Object)
-
 //	person 테이블에 데이터 추가 - INSERT
 	public int addPerson(String name, int age, String addr) throws SQLException {
 		
