@@ -94,16 +94,16 @@ public class MemberController {
 		Connection conn = getConnect();
 		PreparedStatement ps = conn.prepareStatement(p.getProperty("idCheck"));
 		ps.setString(1, id);
-
 		ResultSet rs = ps.executeQuery();
+		
 		String checkId = null;
-
+		
 		if (rs.next())
 			checkId = rs.getString("id");
 		closeAll(rs, ps, conn);
 		if (checkId != null)
 			return true;
-
+		
 		return false;
 	}
 

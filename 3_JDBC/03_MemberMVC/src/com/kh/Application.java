@@ -76,7 +76,6 @@ public class Application {
 		System.out.print("비밀번호 : ");
 		String password = sc.nextLine();
 		
-		
 		String name = mc.login(id, password);
 		if(name != null) {
 			// 이름이 null이 아니면 "~~님, 환영합니다!" 출력 --> login 성공! 성공했다면 memberMenu() 호출

@@ -129,4 +129,8 @@ FROM member
 	JOIN publisher USING(pub_no)
 WHERE member_id = 'user01';
 
-
+SELECT *
+FROM member
+	JOIN rent USING(member_no)
+	JOIN book USING(bk_no)
+	JOIN publisher USING(pub_no);
