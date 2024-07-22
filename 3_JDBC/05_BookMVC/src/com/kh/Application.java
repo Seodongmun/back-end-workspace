@@ -109,6 +109,7 @@ public class Application {
 // 			실패하면 "책을 등록하는데 실패했습니다." 출력
 			System.out.println("책을 등록하는데 실패했습니다");
 		}
+		
 // 		기존 제목, 저자 있으면 등록 안되게!
 	}
 //	============================================================================
@@ -255,7 +256,7 @@ public class Application {
 	// 2. 내가 대여한 책 조회 (SELECT)
 	public void printRentBook(Book book) throws SQLException {
 
-		String book = bc.printRentBook(book,member);
+//		String book = bc.printRentBook(book,member);
 		System.out.println(book);
 		// 내가 대여한 책들을 반복문을 이용하여 조회
 		// 대여 번호, 책 제목, 책 저자, 대여 날짜, 반납 기한 조회 (+7일)
@@ -265,7 +266,7 @@ public class Application {
 //	=========================================================
 	// 3. 대여 취소 
 	public void deleteRent() {
-		
+//		printRentBook();
 		
 		// printRentBook 매서드 호출하여 내가 대여한 책 조회 출력 후
 		
@@ -279,7 +280,6 @@ public class Application {
 //	=========================================================
 	// 4. 회원탈퇴 (Remove)
 	public void deleteMember() {
-		
 		
 		// 회원탈퇴에 성공하면 "회원탈퇴 하였습니다 ㅠㅠ" 출력
 		// 실패하면 "회원탈퇴하는데 실패했습니다." 출력

@@ -202,36 +202,21 @@ public class BookController {
 //	private Member member = new Member();
 //	필요한 테이블 rent , book, member
 //  1-1 . 책 대여 SELECT
-	public boolean rentBook(int select, Member m) throws SQLException {
+	public boolean rentBook(int memberNo, int bookNo ) throws SQLException {
 		Connection conn = getConnect();
 		PreparedStatement ps = conn.prepareStatement(p.getProperty("rentBook"));
-		ps.setInt(1, select);
-		ResultSet rs = ps.executeQuery();
-		
-//		책 정보 SELECT 해서 
-		while (rs.next()) {
-			m.setMemberNo(select);
-		}
-		closeAll(rs, ps, conn);
+		ps.setInt(1, memberNo);
+		ps.setInt(2, bookNo);
+		ps.executeUpdate();
+		close(ps,conn);
+
 		return false;
 	}
 
 //	=========================================================
 //	2. 내가 대여한 책 조회
-	public String printRentBook(Book b, Rent r) throws SQLException {
-		Connection conn = getConnect();
-		PreparedStatement ps = conn.prepareStatement(p.getProperty("printRentBook"));
-		ps.executeQuery();
-		ResultSet rs = ps.executeQuery();
-		String print = "";
-		while (rs.next()) {
-			print += b.getBkNo();
-			print += b.getBkTitle();
-			print += b.getBkAuthor();
-			print += r.getRentDate();
-		}
+	public void printRentBook() throws SQLException {
 
-		return print;
 	}
 
 //	=========================================================
