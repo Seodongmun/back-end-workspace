@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		Controller - 비지니스 로직 작성 공간
-
+		
 //		id(키값)
 //		index.jsp에서 /register로 요청 하여
 //		요청 받은 아이디(id), 비밀번호(pwd), 이름(name)을 받아야함
@@ -43,22 +43,22 @@ public class RegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-//		if(check) {
+		if(check) {
 ////			3. 바인딩 : 결과 페이지에 서버에서 받은 값 보낼 때
 ////			키,값
 		request.setAttribute("name", name);
 		request.setAttribute("check", check);
 
 		
-////			4. 네비게이션 : 결과 페이지 지정 - result.jsp
-////			response.sendRedirect("result.jsp");
-////			만약 결과 페이지로 서버에서 받은 값 보여주려면 
-////			-> RequestDispatcher forword 방식으로 보내야 함
-//			request.getRequestDispatcher("result.jsp").forward(request, response);
-//		} else {
-////			실패했을때
-//			response.sendRedirect("fail.jsp");
-//		}
+//			4. 네비게이션 : 결과 페이지 지정 - result.jsp
+			response.sendRedirect("result.jsp");
+//			만약 결과 페이지로 서버에서 받은 값 보여주려면 
+//			-> RequestDispatcher forword 방식으로 보내야 함
+			request.getRequestDispatcher("result.jsp").forward(request, response);
+		} else {
+//			실패했을때
+			response.sendRedirect("fail.jsp");
+		}
 		
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 		

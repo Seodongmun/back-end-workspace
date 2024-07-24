@@ -16,6 +16,5 @@ pageEncoding="UTF-8"%>
       <label>이름 : <input type="text" name="name" /></label><br />
       <input type="submit" value="회원가입" />
     </form>
-    
   </body>
 </html>
