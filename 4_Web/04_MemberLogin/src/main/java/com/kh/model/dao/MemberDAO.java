@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.kh.model.vo.Member;
 
@@ -86,50 +87,61 @@ public class MemberDAO {
 	
 
 //	로그인
-	public void login(String id, String password) throws SQLException {
+	public Member login(String id, String password) throws SQLException {
 		Connection conn = connect();
 		String query = "SELECT * FROM member WHERE id=? AND password=?";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setString(1, id);
 		ps.setString(2, password);
-		ps.executeUpdate();
-		close(ps,conn);
-
+		ResultSet rs = ps.executeQuery();
+		Member member = null;
+		
+		if(rs.next()) {
+//			id,password는 입력값
+//			name값만 가져온다
+			member = new Member(id,password,rs.getString("name"));
+			
+		}
+		closeAll(rs,ps,conn);
+		return member;
 	}
 	
 //	회원검색
-	public void searchMember(String id) throws SQLException {
+	public Member searchMember(String id) throws SQLException {
 		Connection conn = connect();
 		String query = "SELECT * FROM member WHERE id=?";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setString(1, id);
-		ps.executeQuery();
-		close(ps,conn);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			member = new Member();
+			member.setId(rs.getString("id"));
+			member.setPassword(rs.getString("password"));
+			member.setName(rs.getString("name"));
+		}
+		closeAll(rs,ps,conn);
+		return member;
 	}
 	
 //	전체회원보기
-	public Member allMember() throws SQLException {
+	public ArrayList<Member> allMember() throws SQLException {
 		Connection conn = connect();
 		String query = "SELECT * FROM member";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ResultSet rs = ps.executeQuery();
-		
+		ArrayList<Member> list = new ArrayList<Member>();
 		while(rs.next()) {
-			member.getId();
+			Member member = new Member();
+			member.setId(rs.getString("id"));
+			member.setPassword(rs.getString("password"));
+			member.setName(rs.getString("name"));
+			list.add(member);
 		}
-		close(ps,conn);
-		return member;
-	}
-	
-//	로그아웃
-	public void logOut() {
 		
-		
+		closeAll(rs,ps,conn);
+		return list;
 	}
-	
-	
-	
-	
+
 	
 	
 }

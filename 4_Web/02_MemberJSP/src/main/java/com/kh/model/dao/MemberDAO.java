@@ -84,7 +84,7 @@ public class MemberDAO {
 			member.setPassword(rs.getString("password"));
 			member.setName(rs.getString("name"));
 		}
-		close(ps,conn);
+		closeAll(rs,ps,conn);
 		return member;
 	}
 	

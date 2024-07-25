@@ -69,4 +69,24 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAllMember</display-name>
+    <servlet-name>ViewAllMember</servlet-name>
+    <servlet-class>com.kh.controller.ViewAllMember</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAllMember</servlet-name>
+    <url-pattern>/ViewAllMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogOut</display-name>
+    <servlet-name>LogOut</servlet-name>
+    <servlet-class>com.kh.controller.LogOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogOut</servlet-name>
+    <url-pattern>/LogOut</url-pattern>
+  </servlet-mapping>
 </web-app>

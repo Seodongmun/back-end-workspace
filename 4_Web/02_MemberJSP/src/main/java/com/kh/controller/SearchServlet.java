@@ -14,9 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-
-
 @WebServlet("/search")
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,8 +23,8 @@ public class SearchServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		
 		Member member = null;
+		
 		try {
 			member = dao.search(id);
 		} catch (SQLException e) {

@@ -8,41 +8,51 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.kh.model.dao.MemberDAO;
+import com.kh.model.vo.Member;
 
-@WebServlet("/register")
-public class RegisterServlet extends HttpServlet {
+
+
+@WebServlet("/allMember")
+public class ViewAllMember extends HttpServlet {
 	
-	MemberDAO dao = new MemberDAO();
 	
 	private static final long serialVersionUID = 1L;
+	
+	MemberDAO dao = new MemberDAO();
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		
-		boolean check = false;
+		ArrayList<Member> list = new ArrayList<Member>();
 		
 		try {
-			dao.memberRegister(id, password, name);
-//			Member변수로 받기
-//			dao.register(new Member(id,password,name));
-			check = true;
+			list = dao.allMember();
+			request.setAttribute("allMemberInfo", list);
+			request.getRequestDispatcher("views/allMember.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		if(check){
-
-		response.sendRedirect("/index.jsp");
-		} else {
-			response.sendRedirect("/views/register_fail");
-		}
-
+		
 
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
