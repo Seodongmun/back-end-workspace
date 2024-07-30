@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name");
 		boolean check = false;
-
+		
 		
 //		2. DAO 호출 - DB 접근 필요시
 		try {
