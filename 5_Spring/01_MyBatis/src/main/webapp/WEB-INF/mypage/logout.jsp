@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<li><a href="/register">회원가입</a></li>
+	<h1>로그아웃 되었습니다</h1>
 </body>
 </html>
