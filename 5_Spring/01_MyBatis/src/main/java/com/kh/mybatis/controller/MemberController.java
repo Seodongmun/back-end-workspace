@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.mybatis.model.dto.SearchDTO;
 import com.kh.mybatis.model.vo.Member;
 import com.kh.mybatis.service.MemberService;
 
@@ -37,7 +39,6 @@ public class MemberController {
 		return "mypage/register";
 	}
 	
-	
 	@PostMapping("/register")
 	public String register(Member vo) {
 		service.register(vo);
@@ -49,7 +50,7 @@ public class MemberController {
 	public String login() {
 		return "mypage/login";
 	}
-//	
+	
 	@PostMapping("/login")
 //	로그인 정보 세션에 담기
 	public String login(Member vo, HttpServletRequest request) {
@@ -79,9 +80,6 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	
-	
-	
 //	로그아웃
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
@@ -90,6 +88,22 @@ public class MemberController {
 		if(member != null)session.invalidate();
 		return "redirect:/";
 	}
+	
+//	검색
+	@GetMapping("/search")
+	public String search(SearchDTO dto, Model model) {
+		model.addAttribute("search", service.search(dto));
+		return "index";
+	}
+	
+	@PostMapping("/delete")
+	public String delete(@RequestParam(name="idList",required=false) List<String> idList) {
+//		삭제버튼만 눌렀을경우 에러안나게
+		if(idList != null) service.delete(idList);
+		return "redirect:/";
+	}
+	
+	
 }
 
 
