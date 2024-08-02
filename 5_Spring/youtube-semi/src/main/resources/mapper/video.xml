@@ -16,10 +16,9 @@
 			<result column="channel_img" property="channelImg"/>
 			<result column="channel_name" property="channelName"/>
 			<result column="id" property="id"/>
-		</association>
+		</association>	
 		
 	</resultMap>
-	
 	<select id ="allVideo" resultMap="videoMap">
 		SELECT * FROM video
 		JOIN channel USING (channel_code)

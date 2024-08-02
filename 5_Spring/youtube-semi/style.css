@@ -151,12 +151,6 @@ main section {
 .video-main {
   position: relative;
 }
-.video-card:hover .video-main video{
-	display: block;
-}
-.video-card:hover .video-main img {
-	display: none;
-}
 
 .video-main img {
   border-radius: 10px;
@@ -192,11 +186,3 @@ main section {
   font-size: 0.9rem;
   color: #555;
 }
-
-
-
-
-
-
-
-
