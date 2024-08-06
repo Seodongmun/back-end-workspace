@@ -52,7 +52,7 @@
 					<th>이름</th>
 					<th>삭제</th>
 				</tr>
-				<c:forEach items="${allMember != null ? allMember :search}" var="member">
+				<c:forEach items="${allMember != null ? allMember : search}" var="member">
 					<tr>
 						<td>${member.id}</td>
 						<td>${member.password}</td>

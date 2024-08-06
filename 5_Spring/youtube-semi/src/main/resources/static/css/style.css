@@ -18,6 +18,7 @@ header {
   display: flex;
   justify-content: space-between;
   height: 60px;
+  z-index: 1;
 }
 
 .header-start {
@@ -89,6 +90,7 @@ main nav {
   align-items: center;
   background-color: white;
   background: white;
+  z-index: 1;
 }
 main nav a {
   background-color: #eee;
@@ -142,11 +144,14 @@ main section {
 }
 
 /* section - video */
-
+section{
+	display:flex;
+}
 .video-card {
   width: 350px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  margin : 5px;
 }
 .video-main {
   position: relative;
