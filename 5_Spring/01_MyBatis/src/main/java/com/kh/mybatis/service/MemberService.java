@@ -40,6 +40,10 @@ public class MemberService {
 	public void delete(List<String> idList) {
 		mapper.delete(idList);
 	}
+
+	public Member memberInfo(Member vo) {
+		return mapper.memberInfo();
+	}
 	
 	
 }

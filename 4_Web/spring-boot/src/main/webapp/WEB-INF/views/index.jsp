@@ -19,9 +19,7 @@
 			<c:otherwise>
 				<li><a href="/search">회원검색</a></li>
 				<li><a href="/allMember">전체회원보기</a></li>
-				<!-- 전체회원보기 : views/allMember.jsp에 리스트 출력 -->
 				<li><a href="/logout">로그아웃</a></li>
-				<!-- 로그아웃 : 로그아웃 하고 index.jsp로 이동 -->
 			</c:otherwise>
 		</c:choose>
 	</ul>

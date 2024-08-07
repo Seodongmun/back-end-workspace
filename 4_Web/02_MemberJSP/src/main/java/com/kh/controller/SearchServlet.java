@@ -33,7 +33,6 @@ public class SearchServlet extends HttpServlet {
 		
 		request.setAttribute("info", member);
 		
-		
 		request.getRequestDispatcher("search.jsp").forward(request, response);
 		
 		

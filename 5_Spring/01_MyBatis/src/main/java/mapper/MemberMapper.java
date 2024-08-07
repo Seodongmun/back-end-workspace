@@ -18,6 +18,10 @@ public interface MemberMapper {
 	void update(Member member);
 	List<Member> search(SearchDTO dto);
 	void delete(List<String> idList);
+	Member memberInfo();
+	
+	
+	
 }
 
 // xml -> Mapper -> service -> controller

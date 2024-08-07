@@ -19,7 +19,6 @@ public class MemberDAO {
 	private Member member = new Member();
 	
 	
-	
 	public MemberDAO() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -46,8 +45,7 @@ public class MemberDAO {
 //	매개변수(파라미터) 뭘 가지고 와야 되는지, 리턴타입 결과 출력이 어떤게 필요한지
 	
 	
-	
-	
+
 //	아이디 중복 체크
 	public boolean checkId(String id) throws SQLException {
 		boolean check = false;
@@ -86,7 +84,7 @@ public class MemberDAO {
 //		ps.executeUpdate();
 //		close(ps,conn);
 //		}
-		
+	
 	
 	
 	
@@ -118,13 +116,16 @@ public class MemberDAO {
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setString(1, id);
 		ResultSet rs = ps.executeQuery();
+		
 		if(rs.next()) {
 			member = new Member();
 			member.setId(rs.getString("id"));
 			member.setPassword(rs.getString("password"));
 			member.setName(rs.getString("name"));
 		}
+		
 		closeAll(rs,ps,conn);
+		
 		return member;
 	}
 	

@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
     <title>Insert title here</title>
   </head>
   <body>
-  <%-- ViewServlet : 전체 회원 보기 관련 비즈니스 로직 구현 --%>>
+  <%-- ViewServlet : 전체 회원 보기 관련 비즈니스 로직 구현 --%>
   <a href="/view">전체 회원 보기</a>
     <h1>회원가입</h1>
     <form action="register">

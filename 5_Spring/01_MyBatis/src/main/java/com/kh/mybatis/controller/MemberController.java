@@ -57,6 +57,7 @@ public class MemberController {
 	public String login(Member vo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.setAttribute("vo",service.login(vo));
+		session.setAttribute("memberInfo", service.memberInfo(vo));
 		service.login(vo);
 		return "redirect:/";
 	}
@@ -78,6 +79,7 @@ public class MemberController {
 //		HttpSession session = request.getSession();
 //		session.setAttribute("vo", vo);
 //		service.update(vo);
+		System.out.println(member);
 		return "redirect:/";
 	}
 	

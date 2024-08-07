@@ -1,4 +1,4 @@
-package com.kh.sesstion;
+package com.kh.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 		if(check) {
 //			세션에 바인딩
 			HttpSession session = request.getSession();

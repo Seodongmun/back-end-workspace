@@ -34,6 +34,7 @@ public class MemberController {
 	public void register() {}
 	
 	@PostMapping("register")
+//	Member 의 vo = id , password , name 포함
 	public String register(Member vo) {
 		try {
 			service.memberRegister(vo);
@@ -51,9 +52,11 @@ public class MemberController {
 	@PostMapping("login")
 	public String login(Member vo, HttpServletRequest request) {
 		try {
+			
 			Member member = service.login(vo);
 			HttpSession session = request.getSession();
 			session.setAttribute("member", member);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -75,7 +78,7 @@ public class MemberController {
 			}
 			
 		} catch (Exception e) {}
-
+		
 		return "redirect:/fail";
 	}
 
@@ -108,7 +111,7 @@ public class MemberController {
 		
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		
+		System.out.println(member);
 		if (member != null) {
 			session.invalidate();
 		}
@@ -119,4 +122,14 @@ public class MemberController {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
 
