@@ -59,8 +59,10 @@
 			</button>
 		</div>
 		<div class="header-end">
-			<button type="button">
-				<i class="fa-solid fa-user"></i>
+			<!-- onclick으로 자바스크립트 이동 -->
+			<button type="button" onclick="location.href='/login'">
+				<!-- <i class="fa-solid fa-user"></i> -->
+				로그인
 			</button>
 		</div>
 	</header>

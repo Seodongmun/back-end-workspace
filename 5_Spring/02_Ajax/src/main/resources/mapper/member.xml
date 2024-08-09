@@ -8,4 +8,9 @@
 	SELECT * FROM member WHERE id = #{id}
  </select>
  
+ <insert id="register" parameterType="Member">
+ 	INSERT INTO member
+ 	VALUES (#{id}, #{password}, #{name})
+ </insert>
+ 
 </mapper>

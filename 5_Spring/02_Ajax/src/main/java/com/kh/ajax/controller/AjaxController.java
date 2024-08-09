@@ -1,6 +1,7 @@
 package com.kh.ajax.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class AjaxController {
 	@ResponseBody
 	@PostMapping("/check")
 	public boolean check(String id) {
-
+		
 		System.out.println(service.idCheck(id));
 		Member member = service.idCheck(id);
 		if(member !=null) {
@@ -43,8 +44,21 @@ public class AjaxController {
 		} else {
 			return false;
 		}
-
 	}
+	
+	@ResponseBody
+	@PostMapping("/serial")
+	public Member register(Member member) {
+		
+		service.register(member);
+		System.out.println(member);
+//		System.out.println(vo.getId()+ vo.getPassword()+vo.getName());
+		
+		return member;
+	}
+	
+	
+	
 	
 	
 	

@@ -16,6 +16,7 @@ public class PageController {
 	@Autowired
 	private VideoService video;
 	
+	// 메인페이지 이동
 	@GetMapping("/")
 	public String index(Model model) {
 		System.out.println(video.allVideo());
@@ -23,11 +24,24 @@ public class PageController {
 		return "index";
 	}
 	
+	// 비디오 코드 페이지 이동
 	@GetMapping("/{videoCode}")
 	public String detail(@PathVariable("videoCode") int videoCode, Model model) {
 		model.addAttribute("video", video.detail(videoCode));
 		model.addAttribute("list", video.allVideo());
 		return "detail";
 	}
+	
+	// 로그인 페이지 이동
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	
+	
+	
+	
+	
 
 }
