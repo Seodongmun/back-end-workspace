@@ -8,5 +8,7 @@ import com.semi.youtube.model.vo.Member;
 public interface MemberMapper {
 	
 	Member check(String id);
+	Member login(Member vo);
+	void signup(Member vo);
 	
 }

@@ -45,6 +45,7 @@
 			</section>
 		</div>
 	</main>
+
 	<script src="${pageContext.request.contextPath}/js/script.js"></script>
 	<script src="${pageContext.request.contextPath}/js/time.js"></script>
 </body>

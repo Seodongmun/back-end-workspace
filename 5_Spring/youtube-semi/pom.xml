@@ -84,7 +84,17 @@
 			<artifactId>mysql-connector-j</artifactId>
 		</dependency>
 		<!-- MyBatis -->
-		
+		<!-- / Spring Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>24.0.0</version>
+		</dependency>
+		<!-- Spring Security / -->
 		<!-- 편의성 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -92,6 +102,32 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- / lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- lombok / -->
+		<!-- / Json Web Token : JWT -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Json Web Token : JWT / -->
 	</dependencies>
 
 	<build>

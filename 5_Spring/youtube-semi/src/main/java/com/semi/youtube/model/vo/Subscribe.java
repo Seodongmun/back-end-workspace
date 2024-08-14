@@ -1,10 +1,11 @@
 package com.semi.youtube.model.vo;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor @AllArgsConstructor @Data
+@NoArgsConstructor @AllArgsConstructor @Data @Builder
 public class Subscribe {
 	
 	private int subCode;

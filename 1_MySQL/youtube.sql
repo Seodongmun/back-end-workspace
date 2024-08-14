@@ -17,6 +17,7 @@ CREATE TABLE member(
     password VARCHAR(20),
     email VARCHAR(50),
     phone VARCHAR(13)
+
 );
 -- 채널
 CREATE TABLE channel(

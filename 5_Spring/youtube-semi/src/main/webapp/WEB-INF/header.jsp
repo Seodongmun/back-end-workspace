@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/reset.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css" />
 <script src="https://kit.fontawesome.com/ef885bd654.js"
 	crossorigin="anonymous"></script>
+	
 </head>
 <body>
 	<header>
@@ -57,14 +60,29 @@
 			<button type="button">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
+
+
 		</div>
 		<div class="header-end">
-			<!-- onclick으로 자바스크립트 이동 -->
-			<button type="button" onclick="location.href='/login'">
-				<!-- <i class="fa-solid fa-user"></i> -->
-				로그인
-			</button>
+			<c:if test="${empty vo}">
+				<!-- onclick으로 자바스크립트 이동 -->
+				<button type="button" onclick="location.href='/login'">
+					<!-- <i class="fa-solid fa-user"></i> -->
+					로그인
+				</button>
+			</c:if>
+			<c:if test="${not empty vo}">
+				<button id="logout" onclick="location.href='/login'">
+					<i class="fa-solid fa-user"></i> 로그아웃
+				</button>
+			</c:if>
 		</div>
 	</header>
+	<script>
+		$("#logout").click(() => {
+		localStorage.removeItem("token");
+		});
+	</script>
 </body>
+
 </html>

@@ -30,6 +30,7 @@ public class MemberService {
 	}
 	
 	public void update(Member member) {
+		System.out.println("서비스단 맴버 정ㅂ ㅗ확인" + member);
 		mapper.update(member);
 	}
 	

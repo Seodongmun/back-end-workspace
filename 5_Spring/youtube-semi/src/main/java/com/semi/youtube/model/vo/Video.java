@@ -18,7 +18,7 @@ public class Video {
 	private int videoCount;
 	private LocalDateTime videoDate;
 	private String videoDesc;
-//	private int channelCode; // channel
+	//private int channelCode; // channel
 	private Channel channel;
 	
 }
