@@ -1,7 +1,6 @@
 package com.kh.mybatis.model.vo;
 
 import lombok.AllArgsConstructor;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
