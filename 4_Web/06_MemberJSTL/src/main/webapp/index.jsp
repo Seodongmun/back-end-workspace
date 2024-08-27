@@ -27,6 +27,7 @@
 					LoginServlet : 세션 데이터 바인딩
 					index.jsp로 이동(로그인 된 상태)
 					 -->
+					 
 			</c:when>
 			<c:otherwise>
 				<!-- 로그인 된 경우 -->

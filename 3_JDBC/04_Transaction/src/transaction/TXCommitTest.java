@@ -10,6 +10,7 @@ public class TXCommitTest {
 	public static void main(String[] args) {
 		
 		try {
+			
 //			1. 드라이버 로딩
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			

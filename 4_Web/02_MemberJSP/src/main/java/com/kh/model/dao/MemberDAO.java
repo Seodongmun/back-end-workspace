@@ -24,15 +24,18 @@ public class MemberDAO {
 	
 	public Connection connect() throws SQLException {
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/member", "root", "qwer1234");
+		
 	}
 	
 	public void close(PreparedStatement ps, Connection conn) throws SQLException {
 		ps.close();
 		conn.close();
+		
 	}
 	public void closeAll(ResultSet rs,PreparedStatement ps, Connection conn) throws SQLException {
 		rs.close();
 		close(ps,conn);
+		
 	}
 	
 	
@@ -46,6 +49,7 @@ public class MemberDAO {
 		ps.setString(3, name);
 		ps.executeUpdate();
 		close(ps,conn);
+		
 	}
 	
 //	전체 회원 보기
@@ -66,7 +70,6 @@ public class MemberDAO {
 		closeAll(rs, ps, conn);
 		return list;
 	}
-	
 	
 	
 	public Member search(String id) throws SQLException {

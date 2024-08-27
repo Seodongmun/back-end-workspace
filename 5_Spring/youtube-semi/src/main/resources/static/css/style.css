@@ -18,6 +18,7 @@ header {
   display: flex;
   justify-content: space-between;
   height: 60px;
+  z-index: 1;
 }
 
 .header-start {
@@ -88,6 +89,8 @@ main nav {
   padding-left: 15px;
   align-items: center;
   background-color: white;
+  background: white;
+  z-index: 1;
 }
 main nav a {
   background-color: #eee;
@@ -102,6 +105,7 @@ main nav a.active {
 main section {
   padding-top: 45px;
 }
+
 /*================ 반응형 ================*/
 @media screen and (min-width: 665px) {
   .header-center {
@@ -138,4 +142,66 @@ main section {
     width: 90%;
   }
 }
-/**/
+
+/* section - video */
+section{
+	display:flex;
+}
+.video-card {
+  width: 350px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin : 5px;
+}
+.video-main {
+  position: relative;
+}
+.video-card:hover .video-main video{
+	display: block;
+}
+.video-card:hover .video-main img {
+	display: none;
+}
+
+.video-main img {
+  border-radius: 10px;
+}
+.video-main video,
+.video-main img {
+  width: 100%;
+  position: absolute;
+}
+
+.video-main video {
+  display: none;
+}
+
+.video-info {
+  padding-top: 200px;
+  display: flex;
+  line-height: 1.2;
+}
+
+.video-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.video-info h2 {
+  font-weight: bold;
+}
+
+.video-info p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+
+
+
+
+
+

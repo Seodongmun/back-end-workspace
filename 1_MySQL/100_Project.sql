@@ -1,3 +1,19 @@
+DROP TABLE sign_up;
+DROP TABLE type_category_large;
+DROP TABLE type_category_small;
+DROP TABLE location_category_large;
+DROP TABLE location_category_small;
+DROP TABLE user;
+DROP TABLE membership;
+DROP TABLE membership_type;
+DROP TABLE membership_location;
+DROP TABLE membership_user_list;
+DROP TABLE channel;
+DROP TABLE meetings;
+DROP TABLE main;
+DROP TABLE comment;
+DROP TABLE img;
+
 CREATE TABLE sign_up ( -- 회원가입
     id VARCHAR(50) PRIMARY KEY, -- 아이디
     pwd VARCHAR(255) NOT NULL, -- 비밀번호
@@ -37,7 +53,7 @@ CREATE TABLE user ( -- 유저
     user_location VARCHAR(100), -- 유저선호지역
     user_type VARCHAR(100) -- 유저 선호만남유형
 );
-ALTER TABLE user ADD FOREIGN KEY (id) REFERENCES sign_up (id);
+ALTER TABLE user ADD FOREIGN KEY (id) REFERENCES member(id);
 CREATE TABLE membership ( -- 클럽
     membership_code INT PRIMARY KEY auto_increment, -- 클럽코드
     membership_Name VARCHAR(100) UNIQUE, -- 클럽이름

@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- Ajax (Asynchronous JavaScript and XML) : 비동기적 정보 교환 기법
+	
+	-->
+	<h1>Show Count</h1>
+	<input type="button" id="btn" value="count 증가" onclick="startRequest()">
+	<p id="result"></p>
+	
+	<!-- 자바스크립트 방식 -->
+	<script>
+	
+	let xhr;
+	
+		function startRequest(){ // 요청에 해당하는 로직을 담는 메서드
+			xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = callback;
+			// form 태그의 get방식 -> /count
+			xhr.open("get","/count");
+			// 이때 서버로 전송된다. 실질적인 요청이 들어간다.
+			xhr.send(null);
+			
+		}
+		
+		
+		function callback() { // 응답에 해당하는 로직을 담는 메서드
+		// 4까지가 응답 끝나는 시점
+		if(xhr.readyState === 4) {
+			// 200이 성공한 시점
+			if(xhr.status === 200) {
+				const count = xhr.responseText;
+				document.querySelector("#result").innerHTML = count;
+				
+			}
+			
+		}
+			
+	}
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
