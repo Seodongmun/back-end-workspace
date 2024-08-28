@@ -1,9 +1,9 @@
-package com.kh.practice.controller;
+package com.kh.controller;
 
 import java.util.ArrayList;
 
-import com.kh.practice.model.Book;
-import com.kh.practice.model.Member;
+import com.kh.model.Book;
+import com.kh.model.Member;
 
 public class BookController {
 

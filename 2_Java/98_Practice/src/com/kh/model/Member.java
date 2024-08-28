@@ -1,4 +1,4 @@
-package com.kh.practice.model;
+package com.kh.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

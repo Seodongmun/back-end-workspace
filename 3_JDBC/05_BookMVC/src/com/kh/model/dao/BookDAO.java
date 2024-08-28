@@ -156,7 +156,7 @@ public void login() throws SQLException {
 	System.out.println("비밀번호를 입력하세요 : ");
 	String password = sc.nextLine();
 //	로그인 성공 후 받아온 name
-	String name = bc.login(id, password);
+	String name = bc.login(id, password); //?????????
 	if (name!= null) {
 //			로그인에 성공하면 "~~님, 환영합니다!" 출력 후 memberMenu() 호출
 		System.out.println( name + "님, 환영합니다!");

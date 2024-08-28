@@ -1,12 +1,12 @@
-package com.kh.practice;
+package com.kh;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import com.kh.practice.controller.BookController;
-import com.kh.practice.model.Book;
-import com.kh.practice.model.Member;
+import com.kh.controller.BookController;
+import com.kh.model.Book;
+import com.kh.model.Member;
 
 public class Application {
 	
