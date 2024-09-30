@@ -21,42 +21,28 @@ public class VideoController {
 	@Autowired
 	private VideoService video;
 	
-//	좋아요
+	// 좋아요
 	@ResponseBody
 	@PostMapping("/like")
-	public String like(HttpServletRequest request, int code) {
-		// 세션으로 컨트롤 ===================================
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("vo");
-		VideoLike data = VideoLike.builder()
-		.id(member.getId())
-		.videoCode(code)
-		.build();
-		video.like(data);
-		// 토큰으로 컨트롤 ===================================
-		Authentication authentication = SecurityContextHolder
-										.getContext()
-										.getAuthentication();
-		if (authentication != null && authentication.isAuthenticated()) {
-			Member memberLike = (Member) authentication.getPrincipal();
-			System.out.println("로그인 여부 : " + memberLike.getId());
-			if (!memberLike.getId().equals("")) { 
-				// 리턴 값을 select 해서 video_like 테이블에 + 되게
-				return "detail";
-			}	
+	public void like(int code) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Member member = (Member) authentication.getPrincipal();
 		
-		}
-		return "/";
-//		return "redirect:/detail";
-		// ================================================
+		VideoLike data = VideoLike.builder()
+				.id(member.getId())
+				.videoCode(code)
+				.build();
+		
+		video.like(data);
 	}
 	
-//	좋아요 취소
+	// 좋아요 취소
 	@ResponseBody
 	@PostMapping("/unlike")
 	public void unlike(int code) {
 		video.unlike(code);
 	}
+	
 	
 	
 	

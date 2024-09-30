@@ -1,14 +1,19 @@
 package com.semi.youtube.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semi.youtube.model.vo.Member;
+import com.semi.youtube.model.vo.Paging;
 import com.semi.youtube.model.vo.Subscribe;
 import com.semi.youtube.model.vo.Video;
 import com.semi.youtube.model.vo.VideoLike;
@@ -28,44 +33,44 @@ public class PageController {
 	// 메인페이지 이동
 	
 	@GetMapping("/")
-	public String index(Model model) {
-		System.out.println(video.allVideo());
-		model.addAttribute("list", video.allVideo());
+	public String index(Model model, Paging paging) {
+		model.addAttribute("list", video.allVideo(paging));
 		return "index";
+	}
+	
+	@ResponseBody
+	@GetMapping("/list")
+	public List<Video> list(Paging paging){
+		return video.allVideo(paging);
 	}
 	
 	// 비디오 한개 보여주기
 	// 좋아요 관련 정보 가져오기
 	// 구독자수, 구독 관련 정보 가져오기
 	@GetMapping("/{videoCode}")
-	public String detail(@PathVariable("videoCode") int videoCode, Model model, HttpServletRequest request) {
+	public String detail(@PathVariable("videoCode") int videoCode, Model model, Paging paging) {
 		
 		Video data = video.detail(videoCode);
 		
 		model.addAttribute("video", data);
-		model.addAttribute("list", video.allVideo());
-		model.addAttribute("count",video.count(data.getChannel().getChannelCode()));
+		model.addAttribute("list", video.allVideo(paging));
+		model.addAttribute("count", video.count(data.getChannel().getChannelCode()));
 		
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("vo");
-		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Member member = (Member) authentication.getPrincipal();
 		VideoLike like = null;
 		Subscribe sub = null;
-		System.out.println(like);
-		
 		if(member!=null) {
 			like = video.checkLike(VideoLike.builder()
 					.id(member.getId())
 					.videoCode(videoCode)
 					.build());
-			System.out.println(like);
-			
 			sub = video.check(Subscribe.builder()
 					.id(member.getId())
 					.channelCode(data.getChannel().getChannelCode())
 					.build());
-					
 		}
+		
 		model.addAttribute("like", like);
 		model.addAttribute("sub", sub);
 		

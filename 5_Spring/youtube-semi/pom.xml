@@ -128,6 +128,15 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- Json Web Token : JWT / -->
+		<!-- / 시큐리티 태그 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+		<!-- 시큐리티 태그 / -->
+		
+		
+		
 	</dependencies>
 
 	<build>

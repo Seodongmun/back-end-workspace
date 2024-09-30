@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -14,29 +16,54 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 	
-	@Autowired
-	private JwtAuthenticationFilter jwtFilter;
-	
-	// 특정 http 요청에 대한 웹 기반 보안 구성. 인증/인가 및 로그아웃 설정
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		return http
 				// 권한 permitAll()전체 허용
 				// post일때 csrf 차단 시켜야 됨
 				.csrf(csrf -> csrf.disable())
-				.httpBasic(basic -> basic.disable())
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.formLogin(login ->
+					login
+						.loginPage("/login") // 로그인 페이지 등록
+						.defaultSuccessUrl("/", true) // 로그인 성공했을시 메인으로
+						.permitAll()
+						)
+				.logout(logout -> 
+						logout.logoutUrl("/logout") // 로그아웃 요청 URL
+						.logoutSuccessUrl("/") // 로그아웃 성공했을때
+						.permitAll()
+						)
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)) // 세션 사용
 				.authorizeHttpRequests(authorize -> 
 					authorize
 						.requestMatchers("/like","/unlike").authenticated()
 						.anyRequest().permitAll()
 				)
-				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
 				.build();
 		
-		
-		
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 		
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

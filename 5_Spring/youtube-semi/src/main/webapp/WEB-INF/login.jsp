@@ -22,7 +22,7 @@
 			<!-- 클래스는 건들면 안됨 -->
 			<div class="mb-3">
 				<label for="id" class="form-label">아이디 </label> <input type="text"
-					class="form-control" id="id" name="id">
+					class="form-control" id="id" name="username">
 				<div id="idCheck" class="form-text"></div>
 			</div>
 			<div class="mb-3">
@@ -34,7 +34,7 @@
 		</form>
 		<a href="/signup">아직 회원이 아니신가요?</a>
 	</div>
-	<script>
+  	<script>
 		$('#login').click((e)=>{
 			e.preventDefault(); // 제출 못하게 기존 이벤트 제거
 			$.ajax({
@@ -50,7 +50,7 @@
 			
 			});
 		});
-	</script>
+	</script> 
 </body>
 </html>
 

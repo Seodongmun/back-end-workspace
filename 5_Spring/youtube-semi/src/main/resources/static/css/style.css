@@ -146,6 +146,7 @@ main section {
 /* section - video */
 section{
 	display:flex;
+	flex-wrap: wrap;
 }
 .video-card {
   width: 350px;

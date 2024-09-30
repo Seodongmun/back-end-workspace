@@ -3,7 +3,7 @@ let pwdSubmit = false;
 
 id.addEventListener("input", function (e) {
   // 영어, 숫자로만 10 ~ 14글자 -> 정규표현식!
-  const regExp = /^[a-zA-Z][a-zA-Z0-9]{9,13}$/;
+ /* const regExp = /^[a-zA-Z][a-zA-Z0-9]{9,13}$/;
   // 중복체크
   $.ajax({
     type: "post",
@@ -35,7 +35,7 @@ id.addEventListener("input", function (e) {
     },
   });
 });
-
+/*
 password.addEventListener("input", function (e) {
   // 특수문자 무조건 하나 이상 포함
   // 대문자, 소문자 하나씩 전부다 포함이 되어 있는 경우
@@ -55,7 +55,7 @@ password.addEventListener("input", function (e) {
     pwdSubmit = false;
   }
 });
-
+*/
 // 검증 메서드
 function validate() {
   if (!idSubmit) id.focus();

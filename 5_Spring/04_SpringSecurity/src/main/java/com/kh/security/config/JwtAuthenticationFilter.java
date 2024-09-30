@@ -32,6 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 //		필터 적용된거 확인
 //		System.out.println("jwt Filter!");
 		
+		
 //		클라이언트에서 보낸 토큰을 받아서 사용자 확인 후 인증 처리
 		String token = parseBearerToken(request);
 //		System.out.println(token);
