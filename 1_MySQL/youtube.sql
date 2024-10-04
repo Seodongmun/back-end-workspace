@@ -29,8 +29,8 @@ CREATE TABLE channel(
 -- 동영상
 CREATE TABLE video(
 	video_code INT PRIMARY KEY AUTO_INCREMENT,
-    video_url VARCHAR(100),
-    video_img VARCHAR(100),
+    video_url VARCHAR(500),
+    video_img VARCHAR(500),
     video_title VARCHAR(80),
     video_count INT DEFAULT 0,
     video_date DATETIME DEFAULT CURRENT_TIMESTAMP,

@@ -5,7 +5,15 @@ content TEXT,
 price INT
 );
 
+CREATE TABLE member(
+	id VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(60),
+    email VARCHAR(50),
+    phone VARCHAR(13)
+);
+
 SELECT * FROM product;
+SELECT * FROM member;
 
 INSERT INTO product(title, content, price) VALUES
 ('Blue Wave', 'Born in Tokyo', 125000),
