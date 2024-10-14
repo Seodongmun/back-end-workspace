@@ -1,15 +1,17 @@
-DROP TABLE comment;
-DROP TABLE video_like;
-DROP TABLE video;
-DROP TABLE subscribe;
-DROP TABLE channel;
-DROP TABLE member;
+
 SELECT * FROM comment;
 SELECT * FROM video_like;
 SELECT * FROM video;
 SELECT * FROM subscribe;
 SELECT * FROM channel;
 SELECT * FROM member;
+
+SELECT *
+FROM comment
+WHERE video_code = 1
+ORDER BY comment_date DESC;
+
+SELECT * FROM comment WHERE parent_code = 0 ORDER BY comment_date ASC;
 
 -- 회원
 CREATE TABLE member(
