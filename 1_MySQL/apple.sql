@@ -1,20 +1,57 @@
-CREATE TABLE product(
-id INT PRIMARY KEY AUTO_INCREMENT,
-title VARCHAR(200),
-content TEXT,
-price INT
+CREATE TABLE member (
+    id VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(60) DEFAULT NULL,
+    name VARCHAR(50) DEFAULT NULL,
+    email VARCHAR(50) DEFAULT NULL,
+    phone VARCHAR(13) DEFAULT NULL,
+    addr VARCHAR(200) DEFAULT NULL,
+    addr_detail VARCHAR(200) DEFAULT NULL,
+    status CHAR(1) DEFAULT NULL,
+    type VARCHAR(10) DEFAULT NULL
 );
 
-CREATE TABLE member(
-	id VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(60),
-    name VARCHAR(50),
-    email VARCHAR(50),
-    phone VARCHAR(13)
+CREATE TABLE product (
+    product_code INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) DEFAULT NULL,
+    content TEXT DEFAULT NULL,
+    price INT DEFAULT NULL,
+    url VARCHAR(200) DEFAULT NULL,
+    stock INT DEFAULT 0,
+    status CHAR(1) DEFAULT 'Y',
+    id VARCHAR(50) DEFAULT NULL,
+    like_count INT DEFAULT 0,
+    FOREIGN KEY (id) REFERENCES member(id)
 );
+
+CREATE TABLE cart (
+    cart_code INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    count INT DEFAULT 0,
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    product_code INT DEFAULT NULL,
+    id VARCHAR(50) DEFAULT NULL,
+    FOREIGN KEY (product_code) REFERENCES product(product_code),
+    FOREIGN KEY (id) REFERENCES member(id)
+);
+
+CREATE TABLE payment (
+    payment_code INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    total_price INT NOT NULL,
+    method VARCHAR(20) DEFAULT NULL,
+    status VARCHAR(20) DEFAULT 'processing',
+    payment_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    cart_code INT DEFAULT NULL,
+    id VARCHAR(50) DEFAULT NULL,
+    FOREIGN KEY (cart_code) REFERENCES cart(cart_code) ON DELETE CASCADE,
+    FOREIGN KEY (id) REFERENCES member(id)
+);
+
 -- DROP TABLE member;
 SELECT * FROM product;
 SELECT * FROM member;
+
+UPDATE member SET id = "sdm123" WHERE type= "seller";
+
+
 
 INSERT INTO product(title, content, price) VALUES
 ( 'White and Black', 'Born in France', '120000'),
